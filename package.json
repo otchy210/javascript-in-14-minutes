@@ -30,6 +30,8 @@
     "deploy": "npm run css-deploy && npm run js-build",
     "js-build": "babel _javascript --out-dir lib",
     "js-watch": "npm run js-build -- --watch",
-    "start": "npm run css-watch | npm run js-watch"
+    "start": "npm run css-watch | npm run js-watch",
+    "serve": "jekyll serve",
+    "build": "jekyll build"
   }
 }

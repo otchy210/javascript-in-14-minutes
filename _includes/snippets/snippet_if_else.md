@@ -1,7 +1,7 @@
 ```js
-if (window.location.hostname == 'jgthms.com') {
-  alert('Welcome on my domain! 🤗')
+if (window.location.hostname == 'js-in-14-mins.otchy.net') {
+  alert('私のドメインにようこそ！🤗')
 } else {
-  alert('Please come back soon! 😉')
+  alert('すぐに戻ってきてね！😉')
 }
 ```

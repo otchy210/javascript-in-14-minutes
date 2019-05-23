@@ -1,3 +1,3 @@
 ```js
-window.alert('OMG')
+window.alert('マジで!?')
 ```

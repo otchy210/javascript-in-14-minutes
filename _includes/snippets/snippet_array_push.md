@@ -1,6 +1,6 @@
 ```js
-var my_things = [2 + 5, 'samurai', true];
+var my_things = [2 + 5, 'サムライ', true];
 alert(my_things);
-my_things.push('The Button');
+my_things.push('ボタン');
 alert(my_things);
 ```

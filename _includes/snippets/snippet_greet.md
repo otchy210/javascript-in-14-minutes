@@ -1,7 +1,7 @@
 ```js
 function greet(name) {
-  var message = 'Hey there ' + name;
+  var message = 'やあ、' + name;
   alert(message);
 }
-greet('Alex');
+greet('アレックス');
 ```

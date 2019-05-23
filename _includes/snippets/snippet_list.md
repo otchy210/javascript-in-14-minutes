@@ -1,3 +1,3 @@
 ```js
-alert([2 + 5, 'samurai', true])
+alert([2 + 5, 'サムライ', true])
 ```

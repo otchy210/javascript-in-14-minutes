@@ -2619,7 +2619,6 @@ body {
   right: 5vw;
   -webkit-transform-origin: bottom right;
           transform-origin: bottom right;
-  width: 10rem;
   z-index: 10; }
   .sides.is-active {
     -webkit-animation-name: bounce;
@@ -2774,7 +2773,8 @@ html.case-opera .not-opera {
   line-height: 1;
   padding: 0.25em 0.5em;
   padding-top: calc(0.25em + 1px);
-  vertical-align: middle; }
+  vertical-align: middle;
+  white-space: nowrap; }
   .stamp.is-type {
     background-color: #FFA270; }
   .stamp.is-tool {
@@ -2914,20 +2914,33 @@ html.case-opera .not-opera {
   margin-bottom: 1.5rem;
   margin-top: 1.5rem; }
 
+em {
+  font-style: normal;
+  color: #4a994a; }
+
+small {
+  font-size: 0.7em; }
+
+.translator-notes {
+  font-size: 0.7em;
+  background-color: #f5f5f5;
+  border-radius: 3px;
+  padding: 1.25em 1.5em; }
+
 :root {
-  --html: #ff470f;
-  --css: #00d1b2;
-  --github: #333;
-  --facebook: #3b5998;
-  --twitter: #55acee;
-  --whatsapp: #25d366;
-  --patreon: #f96854;
-  --paypal: #012169;
-  --fortyfour: #5f45bb;
-  --bulma: #00d1b2;
-  --udemy: #ec5252;
-  --hn: #ff6600;
-  --reddit: #5f99cf; }
+  --html: $html;
+  --css: $css;
+  --github: $github;
+  --facebook: $facebook;
+  --twitter: $twitter;
+  --whatsapp: $whatsapp;
+  --patreon: $patreon;
+  --paypal: $paypal;
+  --fortyfour: $fortyfour;
+  --bulma: $bulma;
+  --udemy: $udemy;
+  --hn: $hn;
+  --reddit: $reddit; }
 
 .share {
   border-radius: 5px;

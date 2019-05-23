@@ -6,6 +6,7 @@ var os_el = document.getElementById('os');
 var browser_el = document.getElementById('browser');
 var browser_width_el = document.getElementById('browserWidth');
 var wider_el = document.getElementById('wider');
+var narrower_el = document.getElementById('narrower');
 var return_el = document.getElementById('return');
 var resume_el = document.getElementById('resume');
 var reset_el = document.getElementById('reset');
@@ -26,22 +27,26 @@ window.alert = function(str) {
   }
 };
 
+function isString(maybeStr) {
+  return (typeof maybeStr === 'string');
+}
+
 function checkStep1(str) {
   if (str == 'Hello World!') {
     return showStep(2);
-  } else if (str.toLowerCase() == 'hello world!') {
+  } else if (isString(str) && str.toLowerCase() == 'hello world!') {
     return console.log(
-      'Watch out! In JavaScript, uppercase and lowercase letters are different. Make sure all letters have the proper case.'
+      '気をつけて！JavaScript では大文字と小文字を区別します。全ての文字の大文字と小文字が正しいかどうかを確認しましょう。'
     );
   }
-  console.log('Please type the correct string.');
+  console.log('正しい文字列をタイプして下さい。');
 }
 
 function checkStep5(str) {
   if (str == 24) {
     return showStep(6);
   }
-  console.log('Try again!');
+  console.log('もう一度挑戦！');
 }
 
 function checkStep7(str) {
@@ -49,7 +54,7 @@ function checkStep7(str) {
     browser_width_el.innerHTML = window.innerWidth;
     return showStep(8);
   }
-  console.log(`The answer should be ${window.innerWidth}!`);
+  console.log(`答えは ${window.innerWidth} のはずです！`);
 }
 
 function checkStep10(str) {
@@ -59,19 +64,19 @@ function checkStep10(str) {
 }
 
 function checkStep12(str) {
-  if (str == 'OMG') {
+  if (str == 'マジで!?') {
     return showStep(13);
   }
 }
 
 function checkStep14(str) {
-  if (str == 'What,is,up') {
+  if (str == 'やあ,元気,かい？') {
     return showStep(15);
   }
 }
 
 function checkStep15(str) {
-  if (str == '7,samurai,true') {
+  if (str == '7,サムライ,true') {
     return showStep(16);
   }
 }
@@ -80,7 +85,7 @@ function checkStep18(str) {
   if (!state.desktop) {
     return showStep(19);
   } else if (typeof my_things == 'undefined') {
-    return console.log('Please create an array called "my_things".');
+    return console.log('"my_things" という名前の配列を作って下さい。');
   } else if (str == my_things) {
     return showStep(19);
   }
@@ -90,16 +95,16 @@ function checkStep19(str) {
   if (!state.desktop) {
     return showStep(20);
   } else if (typeof my_things == 'undefined') {
-    return console.log('Please create an array called "my_things".');
+    return console.log('"my_things" という名前の配列を作って下さい。');
   } else if (my_things.length < 2) {
-    return console.log('Please create an array with at least 2 items.');
+    return console.log('少なくとも 2 つの値を持った配列を作って下さい。');
   } else if (str != my_things[1]) {
-    return console.log('Please choose the item at index 1.');
+    return console.log('インデックスが 1 の値を選んで下さい。');
   } else if (str == my_things[1]) {
     return showStep(20);
   }
   console.log(
-    'Please create an array called "my_things" and choose the item at index 1.'
+    '"my_things" という名前の配列を作って、インデックスが 1 の値を選んで下さい。'
   );
 }
 
@@ -107,25 +112,25 @@ function checkStep20(str) {
   if (!state.desktop) {
     return showStep(21);
   } else if (typeof my_things == 'undefined') {
-    return console.log('Please create an array called "my_things".');
+    return console.log('"my_things" という名前の配列を作って下さい。');
   } else if (str == my_things.length) {
     return showStep(21);
   }
-  console.log('Please create an array called "my_things".');
+  console.log('"my_things" という名前の配列を作って下さい。');
 }
 
 function checkStep21(str) {
   if (!state.desktop) {
     return showStep(22);
   } else if (typeof my_things == 'undefined') {
-    return console.log('Please create an array called "my_things".');
-  } else if (str == '7,samurai,true') {
+    return console.log('"my_things" という名前の配列を作って下さい。');
+  } else if (str == '7,サムライ,true') {
     return;
-  } else if (str == '7,samurai,true,LOVE') {
+  } else if (str == '7,サムライ,true,LOVE') {
     return showStep(22);
   }
   console.log(
-    'Please create an array called "my_things" and add the string "LOVE".'
+    '"my_things" という名前の配列を作って、"LOVE" という文字列を追加して下さい。'
   );
 }
 
@@ -133,14 +138,14 @@ function checkStep22(str) {
   if (!state.desktop) {
     return showStep(23);
   } else if (typeof my_things == 'undefined') {
-    return console.log('Please create an array called "my_things".');
-  } else if (str == '7,samurai,true') {
+    return console.log('"my_things" という名前の配列を作って下さい。');
+  } else if (str == '7,サムライ,true') {
     return;
-  } else if (str == '7,samurai,true,The Button') {
+  } else if (str == '7,サムライ,true,ボタン') {
     return showStep(23);
   }
   console.log(
-    'Please create an array called "my_things" and add the string "The Button".'
+    '"my_things" という名前の配列を作って、"ボタン" という文字列を追加して下さい。'
   );
 }
 
@@ -148,40 +153,40 @@ function checkStep23(str) {
   if (!state.desktop) {
     return showStep(24);
   } else if (typeof my_things == 'undefined') {
-    return console.log('Please create an array called "my_things".');
+    return console.log('"my_things" という名前の配列を作って下さい。');
   } else if (str == true) {
-    return console.log('Please test for an element that is NOT in the array.');
+    return console.log('この配列に要素が含まれて *いない* 事を確認して下さい。');
   } else if (str == false) {
     return showStep(24);
   }
   console.log(
-    'Please create an array called "my_things" and call the method "includes()".'
+    '"my_things" という名前の配列を作って、"includes()" というメソッドを呼び出して下さい。'
   );
 }
 
 function checkStep24(str) {
   if (str == window.innerWidth > 400) {
-    var displaying = window.innerWidth > 400 ? 'none' : 'inline';
-    wider.style.display = displaying;
+    wider_el.style.display = window.innerWidth > 400 ? 'inline' : 'none';
+    narrower_el.style.display = window.innerWidth <= 400 ? 'inline' : 'none';
     return showStep(25);
   }
-  console.log('Try again!');
+  console.log('もう一度挑戦！');
 }
 
 function checkStep26(str) {
   if (str.startsWith('Welcome on my domain')) {
     return showStep(27);
   }
-  console.log('Try again!');
+  console.log('もう一度挑戦！');
 }
 
 function checkStep27(str) {
   if (str.startsWith('Welcome on my domain')) {
     return showStep(28);
   } else if (str.startsWith('Please come back soon')) {
-    return console.log('Make sure you use the "==" operator.');
+    return console.log('演算子 "==" を使っていることを確認して下さい。');
   }
-  console.log('Try again!');
+  console.log('もう一度挑戦！');
 }
 
 function checkStep28(str) {
@@ -193,7 +198,7 @@ function checkStep28(str) {
   } else if (str.startsWith('Decent size')) {
     return showStep(29);
   }
-  console.log('Make sure you type all statements in the correct order.');
+  console.log('全ての文が正しい順序である事を確認して下さい。');
 }
 
 function checkStep30(str) {
@@ -202,7 +207,7 @@ function checkStep30(str) {
   } else if (str == '2') {
     return showStep(31);
   }
-  console.log('Try again!');
+  console.log('もう一度挑戦！');
 }
 
 function checkArrayLoop(str, nextStep) {
@@ -384,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   reset_el.addEventListener('click', event => {
-    var answer = confirm('Are you sure?');
+    var answer = confirm('進捗をリセットしてよろしいですか？');
     if (answer == true) {
       resetSteps();
     }

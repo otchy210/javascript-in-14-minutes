@@ -1,5 +1,5 @@
 ```js
-if (window.location.hostname != 'jgthms.com') {
-  alert('Please come back soon! 😉')
+if (window.location.hostname != 'js-in-14-mins.otchy.net') {
+  alert('すぐに戻ってきてね！😉')
 }
 ```

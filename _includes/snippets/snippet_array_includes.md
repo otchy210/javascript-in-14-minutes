@@ -1,4 +1,4 @@
 ```js
-var my_things = [2 + 5, 'samurai', true];
-alert(my_things.includes('ninja'));
+var my_things = [2 + 5, 'サムライ', true];
+alert(my_things.includes('ニンジャ'));
 ```

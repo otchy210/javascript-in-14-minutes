@@ -1,9 +1,9 @@
 ```js
 if (window.innerWidth > 2000) {
-  alert('Big screen! 🔥')
+  alert('大きな画面！🔥')
 } else if (window.innerWidth < 600) {
-  alert('Probably a mobile phone 📱')
+  alert('たぶんスマホ 📱')
 } else {
-  alert('Decent size 👍')
+  alert('ちょうどいいサイズ 👍')
 }
 ```

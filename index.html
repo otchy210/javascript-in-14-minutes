@@ -3,8 +3,8 @@ layout: default
 ---
 
 <header class="header">
-  <h1 class="title">JavaScript in <strong class="fourteen">14</strong> minutes</h1>
-  <p class="subtitle">by <a href="https://jgthms.com" target="_blank">Jeremy Thomas</a></p>
+  <h1 class="title"><strong class="fourteen">14</strong> 分で JavaScript 入門</h1>
+  <p class="subtitle">by <a href="https://jgthms.com" target="_blank">Jeremy Thomas</a> <small>(邦訳：<a href="https://twitter.com/otchy" target="_blank">Otchy</a>)</small></p>
 
   <div class="block">
     <a href="https://bulma.io" target="_blank">
@@ -12,17 +12,24 @@ layout: default
     </a>
   </div>
 
+  <div class="content translator-notes">
+    訳注：この素晴らしいコンテンツは、<a href="https://jgthms.com" target="_blank">Jeremy Thomas</a> さんの <a href="https://jgthms.com/javascript-in-14-minutes/" target="_blank">JavaScript in 14 minutes</a> を、本人の許可を得て <a href="https://twitter.com/otchy" target="_blank">Otchy</a> が日本語に翻訳し、公開したものです。日本語に関する質問やお問い合わせは翻訳者までお願いします。<br>
+    翻訳にあたってはなるべく自然な日本語になるように配慮しましたが、私はプロの翻訳家ではないのでどうしても「英語臭さ」が残っている部分があります。その点に関してはご容赦下さい。
+  </div>
+
   <div class="content">
-    <p>Since you've already learned <a href="https://jgthms.com/web-design-in-4-minutes/" target="_blank">Web design in 4 minutes</a>, it's time to dive into the Web's main programming language: <strong>JavaScript</strong>.</p>
+    <p>
+      <a href="https://jgthms.com/web-design-in-4-minutes/" target="_blank">Web design in 4 minutes</a> <small>(訳注：Web デザインの基本を紹介している同作者のサイト)</small> を学んだ後は、Web のメイン言語 <strong>JavaScript</strong> の世界にに飛び込む番です。
+    </p>
   </div>
 
   <!-- Case: noscript -->
   <noscript>
     <div class="message is-warning">
       <div class="message-body">
-        To learn JavaScript, you need to enable it first!
+        JavaScript を学ぶためにはまずそれを有効にして下さい！
         <br>
-        <a href="https://www.enable-javascript.com/" target="_blank" rel="nofollow">Learn how to enable JavaScript in your web browser</a>.
+        <a href="https://www.enable-javascript.com/ja/" target="_blank" rel="nofollow">あなたのブラウザでJavaScriptを有効にする方法</a>
       </div>
     </div>
     <style type="text/css">#introduction{ display: none; }</style>
@@ -33,18 +40,20 @@ layout: default
     <div class="message is-warning">
       <div class="message-body">
         <p>
-          It looks like you're on a <strong><span class="case is-mobile">mobile device</span> <span class="case is-tablet">tablet</span></strong>! 😱
+          どうやらあなたは<strong><span class="case is-mobile">モバイルデバイス</span><span class="case is-tablet">タブレット</span></strong>を使っているようです！😱
         </p>
         <p>
-          But fear not! 😊
+          でも怖がらないで！😊
         </p>
         <p>
-          While this tutorial is not optimized for this platform, I still made it readable enough for you to enjoy.
+          このチュートリアルはその環境向けに最適化はされていませんが、少なくともあなたが楽しく読めるようにはしておきました。
         </p>
         <p>
-          You should however revisit it on a desktop later if you can, to experience all the features!
+          だけど全部の機能を体験するために、出来れば後でデスクトップブラウザで開いて下さい。
         </p>
-        <p>Anyway, <a onclick="showStep(1);">let's get started</a>!</p>
+        <p>
+          それはさておき、<a onclick="showStep(1);">始めましょう</a>！
+        </p>
       </div>
     </div>
   </div>
@@ -52,11 +61,13 @@ layout: default
   <!-- Case: desktop -->
   <div id="introduction" class="case is-desktop">
     <div class="content">
-      <p>I believe you are using this:</p>
+      <p>
+        あなたの使ってる環境は下記ですよね？
+      </p>
 
       <div id="platform" class="detect">
         <div class="field">
-          <div class="label"><strong>Operating System</strong></div>
+          <div class="label"><strong>OS</strong></div>
           <div class="select">
             <select id="os">
               <option value="">---</option>
@@ -67,7 +78,7 @@ layout: default
           </div>
         </div>
         <div class="field">
-          <div class="label"><strong>Web Browser</strong></div>
+          <div class="label"><strong>Web ブラウザ</strong></div>
           <div class="select">
             <select id="browser">
               <option value="">---</option>
@@ -81,7 +92,9 @@ layout: default
         </div>
       </div>
 
-      <p>If this information is correct, let's <a onclick="showStep(1);">get started</a>.</p>
+      <p>
+        この情報があっていれば、さあ<a onclick="showStep(1);">始めましょう</a>。
+      </p>
     </div>
   </div>
 
@@ -89,9 +102,9 @@ layout: default
   <div id="return" class="message is-success">
     <div class="message-body">
       <p>
-        It looks that you've already been here! 😃
+        どうやら以前ここに来たことがありますね！😃
         <br>
-        Do you want to <a id="resume">resume from where you left off</a> or <a id="reset">start over</a>?
+        <a id="resume">以前の続きから再開</a>しますか？それとも<a id="reset">始めからやり直し</a>ますか？
       </p>
     </div>
   </div>
@@ -100,47 +113,46 @@ layout: default
 <!-- 01 -->
 <div id="step1" class="step">
   <div class="content">
-    <h2>Console <span class="stamp is-tool">tool</span></h2>
+    <h2>コンソール<span class="stamp is-tool">ツール</span></h2>
 
     <p>
-      Your browser comes with a <strong>developer console</strong> that allows you to type JavaScript directly in this webpage.
+      このブラウザには<strong>デベロッパーコンソール</strong>という、ウェブページで直接 JavaScript を実行できるツールがついています。
     </p>
 
     <div class="case is-chrome not-mobile not-tablet">
-      Since you're using <strong>Google Chrome</strong>, open the JavaScript console with
-      <span class="case is-windows is-linux"><kbd class="key">Ctrl</kbd><kbd class="plus">+</kbd><kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">J</kbd> or <kbd class="key">F12</kbd></span>
-      <span class="case is-mac"><kbd class="key">option</kbd><kbd class="plus">+</kbd><kbd class="key">command</kbd><kbd class="plus">+</kbd><kbd class="key">J</kbd></span>
+      あなたは <strong>Google Chrome</strong> を使っているので、<span class="case is-windows is-linux"><kbd class="key">Ctrl</kbd><kbd class="plus">+</kbd><kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">J</kbd> か <kbd class="key">F12</kbd></span><span class="case is-mac"><kbd class="key">⌥</kbd><kbd class="plus">＋</kbd><kbd class="key">⌘</kbd><kbd class="plus">＋</kbd><kbd class="key">J</kbd></span>で、JavaScript コンソールを開いて下さい。
     </div>
 
     <div class="case is-firefox not-mobile not-tablet">
-      Since you're using <strong>Mozilla Firefox</strong>, open the Web console with
-      <span class="case is-windows is-linux"><kbd class="key">Ctrl</kbd><kbd class="plus">+</kbd><kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">K</kbd> or <kbd class="key">F12</kbd></span>
-      <span class="case is-mac"><kbd class="key">option</kbd><kbd class="plus">+</kbd><kbd class="key">command</kbd><kbd class="plus">+</kbd><kbd class="key">K</kbd></span>
+      あなたは <strong>Mozilla Firefox</strong> を使っているので、<span class="case is-windows is-linux"><kbd class="key">Ctrl</kbd><kbd class="plus">+</kbd><kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">K</kbd> か <kbd class="key">F12</kbd></span><span class="case is-mac"><kbd class="key">⌥</kbd><kbd class="plus">＋</kbd><kbd class="key">⌘</kbd><kbd class="plus">＋</kbd><kbd class="key">K</kbd></span >で、Web コンソールを開いて下さい。
     </div>
 
     <div class="case is-edge not-mobile not-tablet">
-      Since you're using <strong>Microsoft Edge</strong>, open the JavaScript console with
-      <span class="case is-windows"><kbd class="key">F12</kbd></span>
+      あなたは <strong>Microsoft Edge</strong> を使っているので、<span class="case is-windows"><kbd class="key">F12</kbd></span>で、JavaScript コンソールを開いて下さい。
     </div>
 
     <div class="case is-opera not-mobile not-tablet">
-      Since you're using <strong>Opera</strong>, open the JavaScript console with
-      <span class="case is-windows is-linux"><kbd class="key">Ctrl</kbd><kbd class="plus">+</kbd><kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">I</kbd></span>
-      <span class="case is-mac"><kbd class="key">option</kbd><kbd class="plus">+</kbd><kbd class="key">command</kbd><kbd class="plus">+</kbd><kbd class="key">I</kbd></span>
+      あなたは <strong>Opera</strong> を使っているので、<span class="case is-windows is-linux"><kbd class="key">Ctrl</kbd><kbd class="plus">＋</kbd><kbd class="key">Shift</kbd><kbd class="plus">＋</kbd><kbd class="key">I</kbd></span><span class="case is-mac"><kbd class="key">⌥</kbd><kbd class="plus">＋</kbd><kbd class="key">⌘</kbd><kbd class="plus">＋</kbd><kbd class="key">I</kbd></span>で、JavaScript コンソールを開いて下さい。
     </div>
 
     <div class="case is-safari not-mobile not-tablet">
-      <p>Since you're using <strong>Apple Safari</strong>:</p>
+      <p>
+        あなたは <strong>Apple Safari</strong> を使っているので、
+      </p>
       <ol>
-        <li>Go to <strong>Preferences</strong> with <kbd class="key">command</kbd><kbd class="plus">+</kbd><kbd class="key">,</kbd></li>
-        <li>Go to the <strong>Advanced</strong> tab</li>
-        <li>Enable <strong>Show Develop menu in menu bar</strong></li>
-        <li>Open the JavaScript console <kbd class="key">option</kbd><kbd class="plus">+</kbd><kbd class="key">command</kbd><kbd class="plus">+</kbd><kbd class="key">C</kbd></li>
+        <li><kbd class="key">⌘</kbd><kbd class="plus">＋</kbd><kbd class="key">,</kbd>で <strong>環境設定</strong> を開いて、</li>
+        <li><strong>詳細</strong> タブを選択し、</li>
+        <li><strong>メニューバーに "開発" メニューを表示</strong>を有効にして下さい。</li>
+        <li>そして、<kbd class="key">⌥</kbd><kbd class="plus">＋</kbd><kbd class="key">⌘</kbd><kbd class="plus">＋</kbd><kbd class="key">C</kbd> で、JavaScript コンソールを開いて下さい。</li>
       </ol>
     </div>
 
-    <p>Let's see if it works!</p>
-    <p>In the console, type (or paste) the following, and press <kbd class="key">Enter</kbd></p>
+    <p>
+      ちゃんと動作するか確かめてみましょう！
+    </p>
+    <p>
+      コンソール上に、次の内容をタイプ (するかペースト) して、<kbd class="key">Enter</kbd> を押して下さい。
+    </p>
   </div>
 
   {% capture snippet %}{% include snippets/snippet_hello_world.md %}{% endcapture %}
@@ -151,80 +163,92 @@ layout: default
 <div id="step2" class="step">
   <div class="content">
     {% include partials/gj.html %}
-    <p>You've just used <code>alert()</code>, a native <strong>JavaScript function</strong> that comes with every browser.</p>
-
-    <p>But what have you <a onclick="showStep(3);">done exactly</a>?</p></div>
+    <p>
+      いま <code>alert()</code> という、全てのブラウザに実装されている JavaScript の<strong>関数</strong>を実行しました。
+    </p>
+    <p>
+      でも<a onclick="showStep(3);">具体的には何をした</a>のでしょうか？
+    </p>
   </div>
 </div>
 
 <!-- 03 -->
 <div id="step3" class="step">
   <div class="content">
-    <h2>Functions <span class="stamp is-concept">concept</span></h2>
-    <p>You've <strong>called</strong> the <code>alert()</code> <em>function</em> with the <code>'Hello&nbsp;World!'</code> <em>argument</em>.</p>
-
-    <p>You have basically done 4 things:</p>
+    <h2>関数<span class="stamp is-concept">基本概念</span></h2>
+    <p>
+      先ほど <code>alert()</code> という<em>関数</em>を、<code>'Hello&nbsp;World!'</code>という<em>引数</em>で<strong>呼び出し</strong>ました。
+    </p>
+    <p>
+      基本的には 4 つのことをした事になります。
+    </p>
 
     <div class="stabs">
       <div class="stab">
-        <div class="stab-label">you typed the <strong>name</strong> of the function</div>
+        <div class="stab-label">関数の<strong>名前</strong>をタイプしました。</div>
         <div class="stab-code"><code class="stabilo"><span class="is-blue">alert</span>('Hello World!')</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you opened a <strong>parenthesis</strong></div>
+        <div class="stab-label"><strong>丸括弧</strong>を開きました。</div>
         <div class="stab-code"><code class="stabilo">alert<span class="is-black">(</span>'Hello World!')</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed an <strong>argument</strong></div>
+        <div class="stab-label"><strong>引数</strong>をタイプしました。</div>
         <div class="stab-code"><code class="stabilo">alert(<span class="is-green">'Hello World!'</span>)</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you <strong>closed</strong> the parenthesis</div>
+        <div class="stab-label">丸括弧を<strong>閉じました</strong>。</div>
         <div class="stab-code"><code class="stabilo">alert('Hello World!'<span class="is-black">)</span></code></div>
       </div>
     </div>
 
-    <p>Sometimes, there's no argument.<br>
-    Sometimes, there's multiple arguments.<br>
-    Most of them are required, but some of them can be optional.</p>
-
-    <p>In this case, <code>alert()</code> requires only one argument.</p>
-
-    <p>But what <a onclick="showStep(4);">type of argument</a> is that?</p>
+    <p>
+      関数には引数がない時もありますし、複数の引数がある時もあります。ほとんどの引数は必須ですが、必須ではない事もあります。
+    </p>
+    <p>
+      このケースでは、<code>alert()</code> は一つだけ引数を必要とします。
+    </p>
+    <p>
+      ではこれは、どんな<a onclick="showStep(4);">型の引数</a>なのでしょう？
+    </p>
   </div>
 </div>
 
 <!-- 04 -->
 <div id="step4" class="step">
   <div class="content">
-    <h2>Strings <span class="stamp is-type">type</span></h2>
+    <h2>文字列 (String) <span class="stamp is-type">型</span></h2>
 
-    <p>When you handle text, you're using <strong>strings</strong>, which are a series of <em>characters</em>. In our case, we used a series of <strong>12 characters</strong>: <code>Hello World!</code>. This includes all lowercase and uppercase letters, the space, and the exclamation point.</p>
+    <p><strong>文字列</strong>とは連続した文字の集まりで、テキストを扱いたい時に使います。今回の場合、連続した <strong>12 個の文字</strong>、<code>Hello World!</code> です。これは、小文字、大文字、スペース、エクスクラメーションマークを含んでいます。</p>
 
-    <p>To define where the string <em>starts</em> and where it <em>ends</em>, you need to wrap it in <strong>quotes</strong> (either single <code>'</code> or double <code>"</code>).</p>
+    <p>どこから文字列が<em>始まって</em>、そして<em>終わる</em>のかを定義するためには、<strong>クォート</strong>でそれを囲む必要があります (シングルクォート <code>'</code> もしくはダブルクォート <code>"</code> のどちらでも構いません)。</p>
 
-    <p>When you defined the <code>'Hello World!'</code> string:</p>
+    <p><code>'Hello World!'</code> という文字列を定義するために：</p>
 
     <ol>
-      <li>you typed a single <strong>quote</strong></li>
-      <li>you typed the <strong>12 characters</strong></li>
-      <li>you typed another single <strong>quote</strong></li>
+      <li>シングル<strong>クォート</strong>をタイプしました。</li>
+      <li><strong>12 個の文字</strong>をタイプしました。</li>
+      <li>そしたもう一つのシングル<strong>クォート</strong>をタイプしました。</li>
     </ol>
 
-    <p>What if you wanted to deal with <a onclick="showStep(5);">numbers instead</a>?</p>
+    <p>文字列の<a onclick="showStep(5);">代わりに数字</a>を扱いたい時はどうしたら良いでしょう？</p>
   </div>
 </div>
 
 <!-- 05 -->
 <div id="step5" class="step">
   <div class="content">
-    <h2>Numbers <span class="stamp is-type">type</span></h2>
+    <h2>数値 (Number) <span class="stamp is-type">型</span></h2>
 
-    <p>Like any other programming language, JavaScript can handle <strong>numbers</strong>.</p>
-
-    <p>These numbers can be big or small, with or without decimals, combined through numeric operations…</p>
-
-    <p>Type or paste the following snippet in your console:</p>
+    <p>
+      他のプログラミング言語と同様に、JavaScript は<strong>数値</strong>を扱う事ことが出来ます。
+    </p>
+    <p>
+      これらの数値は、大きくも小さくもなりますし、少数点があってもなくても良いです。また数値計算<strong>演算子</strong>によって計算する事が出来ます。
+    </p>
+    <p>
+      コンソール上に、次の内容をタイプ (するかペースト) して下さい。
+    </p>
   </div>
 
   {% capture snippet %}{% include snippets/snippet_numbers.md %}{% endcapture %}
@@ -234,29 +258,38 @@ layout: default
 <!-- 06 -->
 <div id="step6" class="step">
   <div class="content">
-    {% include partials/gj.html title="Perfect!" %}
+    {% include partials/gj.html title="完璧！" %}
 
-    <p>Notice a few things:</p>
+    <p>
+      いくつかの事に気づいたでしょうか？
+    </p>
 
     <ul>
-      <li>you're using the <code>+</code> and <code>*</code> <strong>operators</strong></li>
-      <li>the <strong>mathematical order</strong> is respected: first <code>5 * 3</code> is calculated, then <code>9 + 15</code></li>
-      <li>the <strong>spaces</strong> around the <code>*</code> symbol don't affect the output ; they're just here to help us (humans!) <em>read</em> the code.</li>
+      <li><code>+</code> と <code>*</code> という<strong>演算子</strong>を使っています。<small>(訳注：<code>*</code> は掛け算を意味します。)</small></li>
+      <li><strong>数学的な計算順序</strong>は尊重されます。先に <code>5 * 3</code> (乗算) が計算されてから、<code>9 + 15</code> (加算) が計算されます。</li>
+      <li><code>*</code> の周りのスペースは出力に影響しません。それらは私たち人間がコードを<em>読みやすく</em>するためだけにあります。</li>
     </ul>
 
-    <p>You can find numbers in <a onclick="showStep(7);">lots of places</a>.</p>
+    <p>
+      数値は<a onclick="showStep(7);">様々な場所</a>にあります。
+    </p>
   </div>
 </div>
 
 <!-- 07 -->
 <div id="step7" class="step">
   <div class="content">
-    <h2>Browser dimensions <span class="stamp is-info">info</span></h2>
-    <p>Numbers are everywhere! Especially in a browser.</p>
+    <h2>ブラウザの大きさ<span class="stamp is-info">情報</span></h2>
 
-    <p>For example, your current browser window has a certain <strong>width</strong> that you can access with JavaScript.</p>
-
-    <p>Type the following:</p>
+    <p>
+      特にブラウザ内では、数値は至る所にあります！
+    </p>
+    <p>
+      例えば、今のブラウザのウィンドウは JavaScript で取得出来る特定の<strong>幅</strong>を持っています。
+    </p>
+    <p>
+      次の内容をタイプして下さい。
+    </p>
 
     {% capture snippet %}{% include snippets/snippet_innerwidth.md %}{% endcapture %}
     {% include partials/snippet.html contents=snippet %}
@@ -266,57 +299,65 @@ layout: default
 <!-- 08 -->
 <div id="step8" class="step">
   <div class="content">
-    {% include partials/gj.html title="Wonderful!" %}
+    {% include partials/gj.html title="ワンダフル！" %}
 
     <p>
-      This means your browser's window is <strong id="browserWidth">1680</strong> pixels wide.
+      これは、あなたのブラウザウウィンドウの幅が <strong id="browserWidth">1680</strong> ピクセルという事です。
     </p>
-
     <p>
-      As you would have guessed, <code>window.innerHeight</code> exists as well, as does <code>window.scrollY</code>, which gives you the current scroll position.
+      想像通り、<code>window.innerHeight</code> も存在します。<small>(訳注：width で幅が取得出来るなら、height で高さが取得出来るのは道理ですね。)</small> また、現在のスクロール位置を取得する <code>window.scrollY</code> も存在します。
     </p>
-
-    <p>But what is <code>window</code> <a onclick="showStep(9);">exactly</a>?</p>
+    <p>
+      ただ、<code>window</code> とは<a onclick="showStep(9);">正確には</a>何なのでしょうか？
+    </p>
   </div>
 </div>
 
 <!-- 09 -->
 <div id="step9" class="step">
   <div class="content">
-    <h2>Objects <span class="stamp is-type">type</span></h2>
+    <h2>オブジェクト (Object)<span class="stamp is-type">型</span></h2>
 
     <p>
-      <code>window</code> is a JavaScript <strong>object</strong>.
+      <code>window</code> は JavaScript の<strong>オブジェクト</strong>です。
     </p>
     <p>
-      <code>innerWidth</code> is a <strong>property</strong> of the <code>window</code> object.
-      <br>
-      To access this property, you used a dot <code>.</code> to specify you wanted the <code>innerWidth</code> that exists <em>within</em> the <code>window</code> object.
+      <code>innerWidth</code> は、<code>window</code> オブジェクトの<strong>プロパティ</strong>です。<br>
+      この <code>window</code> オブジェクトの<em>中に</em>存在する <code>innerWidth</code> というプロパティにアクセスするために、ドット <code>.</code> を使いました。
     </p>
-
-    <p>The JavaScript object is basically a <strong>type</strong> that contains other things.</p>
-    <p>For example, <code>window</code> also has:</p>
+    <p>
+      JavaScript オブジェクトは基本的な<strong>型</strong>で、他のものを含んでいます。
+    </p>
+    <p>
+      例えば、<code>window</code>は以下のようなものを含んでいます。
+    </p>
 
     <ul>
-      <li><code>window.origin</code> which is a string</li>
-      <li><code>window.scrollY</code> which is a number</li>
-      <li><code>window.location</code> which is an object</li>
+      <li><code>window.origin</code>は文字列です。</li>
+      <li><code>window.scrollY</code>は数値です。</li>
+      <li><code>window.location</code>は別のオブジェクトです。</li>
     </ul>
 
-    <p>If <code>window</code> is an object that contains <code>location</code> which is another object, this means that <a onclick="showStep(10);">JavaScript objects support</a>…</p>
+    <p>
+      <code>window</code> がオブジェクトで、それが他のオブジェクト <code>location</code> を含んでいるという事は、JavaScript オブジェクトは<a onclick="showStep(10);">ちょっと面白い事</a>が出来るという事です。<small>(訳注：原文が英文法に強く依存するためかなりの意訳)</small>
+    </p>
   </div>
 </div>
 
 <!-- 10 -->
 <div id="step10" class="step">
   <div class="content">
-    <h2>Nesting <span class="stamp is-info">info</span></h2>
+    <h2>入れ子<span class="stamp is-info">情報</span></h2>
 
-    <p>A property of an object can be an object itself (inception!).</p>
-
-    <p>Since <code>window.location</code> is an object too, it has properties of its own. To access these properties, just add another dot <code>.</code> and the name of the property.</p>
-
-    <p>For example, the <code>href</code> property exists:</p>
+    <p>
+      あるオブジェクトのプロパティに、他のオブジェクトを持ったり、時にはそのオブジェクト自身をプロパティにする事も出来ます (インセプション！)。<small>(訳注：ここではレオナルド・ディカプリオ主演の映画<a href="https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%82%BB%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3" target="_blank">インセプション</a>を指していると思われます。夢の階層が入れ子になった SF 映画で訳者も大好きです。)</small>
+    </p>
+    <p>
+      <code>window.location</code> はオブジェクトなので、それ自身もまたプロパティを持っています。それらのプロパティにアクセスするには、単にまた別のドット <code>.</code> を加え、そこにプロパティ名を続けます。
+    </p>
+    <p>
+      例えば、<code>href</code> というプロパティがあります。
+    </p>
 
     {% capture snippet %}{% include snippets/snippet_href.md %}{% endcapture %}
     {% include partials/snippet.html contents=snippet %}
@@ -326,24 +367,23 @@ layout: default
 <!-- 11 -->
 <div id="step11" class="step">
   <div class="content">
-    {% include partials/gj.html title="Awesome!" %}
+    {% include partials/gj.html title="すごい！" %}
 
-    <p>You just displayed the <strong>full URL</strong> of this webpage. This is because:</p>
+    <p>
+      このウェブページの <strong>URL 全体</strong>が表示されました。これはつまり…
+    </p>
 
     <ul>
-      <li><code>window</code> is an object</li>
-      <li><code>location</code> is an object</li>
-      <li><code>href</code> is a string</li>
+      <li><code>window</code> がオブジェクトで、</li>
+      <li><code>location</code> がオブジェクトで、</li>
+      <li><code>href</code> が文字列だからです。</li>
     </ul>
 
     <p>
-      There's no limit to how deeply objects can be nested.
-      <br>
-      There's also no limit to the number of properties an object can have.
+      どのくらい深くオブジェクトが入れ子に出来るかには制限はありません。また一つのオブジェクトが持つ事が出来るプロパティの数にも制限はありません。
     </p>
-
     <p>
-      As we've seen, the properties of an object can be of any type: strings, numbers, objects, and even functions. In the latter case, it's <a onclick="showStep(12);">called…</a>
+      これまで見てきたように、オブジェクトのプロパティはあらゆる型を持つ事が出来ます。文字列、数値、オブジェクト、あるいは関数にもなりえます。関数のケースは特別に<a onclick="showStep(12);">こう呼ばれ</a>ます。
     </p>
   </div>
 </div>
@@ -351,11 +391,14 @@ layout: default
 <!-- 12 -->
 <div id="step12" class="step">
   <div class="content">
-    <h2>Methods <span class="stamp is-info">info</span></h2>
+    <h2>メソッド<span class="stamp is-info">情報</span></h2>
 
-    <p>When an object's <strong>property</strong> is a <strong>function</strong>, it's called a <strong>method</strong> instead.</p>
-
-    <p>Actually, the <code>alert()</code> function we've been using so far is a method of the <code>window</code> object!</p>
+    <p>
+      あるオブジェクトの<strong>プロパティ</strong>が<strong>関数</strong>のとき、これを<strong>メソッド</strong>と呼びます。
+    </p>
+    <p>
+      実際、始めに使った <code>alert()</code> という関数は、<code>window</code> オブジェクトのメソッドなのです！
+    </p>
 
     {% capture snippet %}{% include snippets/snippet_omg.md %}{% endcapture %}
     {% include partials/snippet.html contents=snippet %}
@@ -365,26 +408,19 @@ layout: default
 <!-- 13 -->
 <div id="step13" class="step">
   <div class="content">
-    {% include partials/gj.html title="OMG indeed!" %}
+    {% include partials/gj.html title="マジだよ！" %}
 
     <p>
-      Since <code>window</code> is the top-level object in the browser, you can access all its properties and methods directly.
+      <code>window</code> はブラウザ上におけるトップレベルオブジェクトなので、その全てのプロパティとメソッドには直接アクセスする事が出来ます。
     </p>
-
     <p>
-      That's why typing <code>location.href</code> is the same as typing <code>window.location.href</code>.
+      それが、<code>location.href</code> とタイプする事が <code>window.location.href</code> とタイプする事と同じ意味になる理由です。<code>alert()</code> が <code>window.alert()</code> と同等の意味なるのも、そう、同じ理由です。
     </p>
-
     <p>
-      Or why <code>alert()</code> is equivalent to <code>window.alert()</code>.
+      オブジェクトは一つの名前の元に複数のプロパティをまとめたり、また、データの<strong>階層</strong>を表現するのに便利です。これは、太い枝から徐々に細い枝に枝分かれしていく木のようなデータの構造です。
     </p>
-
     <p>
-      Objects are useful for grouping several properties under the same name and scope, and defining a <strong>hierarchy</strong> in the data. It's like a tree, where each branch can have other smaller branches.
-    </p>
-
-    <p>
-      But what if you only needed a <a onclick="showStep(14);">list of things</a>…
+      では単に、<a onclick="showStep(14);">何かのリスト</a>が欲しいだけの時はどうでしょう？
     </p>
   </div>
 </div>
@@ -392,11 +428,14 @@ layout: default
 <!-- 14 -->
 <div id="step14" class="step">
   <div class="content">
-    <h2>Arrays <span class="stamp is-type">type</span></h2>
+    <h2>配列 (Array)<span class="stamp is-type">型</span></h2>
 
-    <p>A JavaScript <strong>array</strong> is a type that can contain multiple values, as if they were in an ordered list.</p>
-
-    <p>Let's pass an array of <strong>3 strings</strong> to the <code>alert()</code> function:</p>
+    <p>
+      JavaScript の<strong>配列</strong>は型の一種で、複数の値を含む事が出来て、あたかも順序を持ったリストのように振る舞います。
+    </p>
+    <p>
+      <code>alert()</code> 関数に、<strong>3 つの文字列</strong>からなる配列を渡してみましょう。
+    </p>
     {% capture snippet %}{% include snippets/snippet_what_is_up.md %}{% endcapture %}
     {% include partials/snippet.html contents=snippet %}
   </div>
@@ -405,45 +444,43 @@ layout: default
 <!-- 15 -->
 <div id="step15" class="step">
   <div class="content">
-    {% include partials/gj.html title="Exactly!" %}
+    {% include partials/gj.html title="もちろん！" %}
 
     <p>
-      You already know the syntax for calling the <code>alert</code> function: <code>alert(argument)</code>.
+      <code>alert</code> 関数を呼び出す文法 <code>alert(parameter)</code> は、すでに知っていますね？
     </p>
-
     <p>
-      In this case, the argument you passed is an array with 3 items that you have defined like this:
+      この例では、パラメータは以下のように定義された 3 つの要素を持つ配列です。
     </p>
 
     <div class="stabs">
       <div class="stab">
-        <div class="stab-label">you opened a <strong>square bracket</strong></div>
-        <div class="stab-code"><code class="stabilo"><span class="is-black">[</span>'What', 'is', 'up']</code></div>
+        <div class="stab-label"><strong>角括弧</strong>を開きました。</div>
+        <div class="stab-code"><code class="stabilo"><span class="is-black">[</span>'やあ', '元気', 'かい？']</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed the <strong>first item</strong> of the array, a string</div>
-        <div class="stab-code"><code class="stabilo">[<span class="is-green">'What'</span>, 'is', 'up']</code></div>
+        <div class="stab-label">配列の<strong>最初の要素</strong>の文字列をタイプしました。</div>
+        <div class="stab-code"><code class="stabilo">[<span class="is-green">'やあ'</span>, '元気', 'かい？']</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed a <strong>comma</strong> to separate the items</div>
-        <div class="stab-code"><code class="stabilo">['What'<span class="is-black">,</span> 'is', 'up']</code></div>
+        <div class="stab-label">要素を区切るために、<strong>コンマ</strong>をタイプしました。</div>
+        <div class="stab-code"><code class="stabilo">['やあ'<span class="is-black">,</span> '元気', 'かい？']</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you added <strong>two other items</strong> to the list</div>
-        <div class="stab-code"><code class="stabilo">['What', <span class="is-green">'is'</span><span class="is-black">, </span><span class="is-green">'up'</span>]</code></div>
+        <div class="stab-label"><strong>あと 2 つの要素</strong>をリストに追加しました。</div>
+        <div class="stab-code"><code class="stabilo">['やあ', <span class="is-green">'元気'</span><span class="is-black">, </span><span class="is-green">'かい？'</span>]</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you <strong>closed</strong> the square bracket</div>
-        <div class="stab-code"><code class="stabilo">['What', 'is', 'up'<span class="is-black">]</span></code></div>
+        <div class="stab-label">角括弧を<strong>閉じました</strong>。</div>
+        <div class="stab-code"><code class="stabilo">['やあ', '元気', 'かい？'<span class="is-black">]</span></code></div>
       </div>
     </div>
 
     <p>
-      An array can contain any <strong>type</strong> of values: strings, numbers, objects, other arrays, and <em>more</em>…
+      配列はどんな種類の<strong>型</strong>でも要素に持つ事が出来ます。文字列、数値、オブジェクト、他の配列、さらに<em>もっと</em>…
     </p>
-
     <p>
-      Try out this snippet:
+      このスニペット<small>(訳注：少量のコードの断片の事をプログラミングの文脈ではよくこう呼びます。この先でも出てくる言葉です。)</small>を試してみましょう。
     </p>
 
     {% capture snippet %}{% include snippets/snippet_list.md %}{% endcapture %}
@@ -454,17 +491,16 @@ layout: default
 <!-- 16 -->
 <div id="step16" class="step">
   <div class="content">
-    {% include partials/gj.html title="True!" %}
+    {% include partials/gj.html title="正解！" %}
 
     <p>
-      The first item <code>2 + 5</code> is a number, while the second one <code>'samurai'</code> is a string.
-    </p>
-
-    <p>
-      What about the <strong>third argument</strong>? It's not a string because it's not wrapped in quotes, and it's not a number either.
+      一つ目の要素 <code>2 + 5</code> は数値で、二つ目の要素 <code>'サムライ'</code> は文字列です。
     </p>
     <p>
-      So <a onclick="showStep(17);">what is it</a>?
+      <strong>三つ目のパラメータ</strong>はどうでしょう？ これはクォート囲まれていないので文字列ではありません、また数値でもありません。
+    </p>
+    <p>
+      では<a onclick="showStep(17);">何なのでしょう</a>？
     </p>
   </div>
 </div>
@@ -472,16 +508,16 @@ layout: default
 <!-- 17 -->
 <div id="step17" class="step">
   <div class="content">
-    <h2>Booleans <span class="stamp is-type">type</span></h2>
-
-    <p>While strings and numbers have an infinite amount of <em>possible</em> values, a <strong>boolean</strong> can only be either <code>true</code> or <code>false</code>.</p>
+    <h2>真偽値 (Boolean)<span class="stamp is-type">型</span></h2>
 
     <p>
-      By combining the <code>alert()</code> function and the 3-item array on a <em>single</em> line, it makes our code less readable.
+      文字列と数字は<em>無限の種類の</em>値を取る事が出来ますが、<strong>真偽値</strong>は <code>true</code> か <code>false</code>のいずれかにしかなりません。
     </p>
-
     <p>
-      What if we could split the two by moving the array onto <a onclick="showStep(18);">its own line</a>?
+      <code>alert()</code> と 3 要素の配列が<em>一行</em>に収まってしまっているので、コードが読みにくくなっています。
+    </p>
+    <p>
+      では、配列を<a onclick="showStep(18);">それだけの行</a>に移動して、2 つに分けてみたらどうでしょう？
     </p>
   </div>
 </div>
@@ -489,14 +525,13 @@ layout: default
 <!-- 18 -->
 <div id="step18" class="step">
   <div class="content">
-    <h2>Variables <span class="stamp is-concept">concept</span></h2>
+    <h2>変数<span class="stamp is-concept">基本概念</span></h2>
 
     <p>
-      We can move the array into a <strong>variable</strong>.
+      この配列は一つの<strong>変数</strong>に移動することが出来ます。
     </p>
-
     <p>
-      A variable is a <strong>container</strong> that stores a certain <strong>value</strong>. It has a <strong>name</strong> (so you can identify and re-use it), and it has a <strong>value</strong> (so you can update it later on).
+      変数はある<strong>値</strong>を保持することが出来る<strong>入れ物</strong>です。変数は<strong>名前</strong>を持ち<strong>値</strong>を持ちます。名前があるのでそれを特定し再利用する事ができ、値があるのでそれを後で更新する事が出来ます。
     </p>
 
     {% capture snippet %}{% include snippets/snippet_array.md %}{% endcapture %}
@@ -504,50 +539,48 @@ layout: default
 
     <ul>
       <li>
-        <code>my_things</code> is the <strong>name</strong> of the variable
+        <code>my_things</code> は配列の<strong>名前</strong>です。
       </li>
       <li>
-        <code>[2 + 5, 'samurai', true]</code> is the <strong>value</strong> of the variable
+        <code>[2 + 5, 'サムライ', true]</code> は配列の<strong>値</strong>です。
       </li>
     </ul>
 
     <p>
-      Here's the breakdown:
+      分解するとこんな感じです。
     </p>
 
     <div class="stabs is-vertical">
       <div class="stab">
-        <div class="stab-label">you typed the <strong>keyword</strong> <code>var</code></div>
-        <div class="stab-code"><code class="stabilo"><span class="is-purple">var</span> my_things = [2 + 5, 'samurai', true];</code></div>
+        <div class="stab-label"><strong>予約語</strong>の <code>var</code> をタイプしました。</div>
+        <div class="stab-code"><code class="stabilo"><span class="is-purple">var</span> my_things = [2 + 5, 'サムライ', true];</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed the <strong>name</strong> of the variable</div>
-        <div class="stab-code"><code class="stabilo">var <span class="is-blue">my_things</span> = [2 + 5, 'samurai', true];</code></div>
+        <div class="stab-label">変数の<strong>名前</strong>をタイプしました。</div>
+        <div class="stab-code"><code class="stabilo">var <span class="is-blue">my_things</span> = [2 + 5, 'サムライ', true];</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed the <strong>assignment</strong> operator <code>=</code></div>
-        <div class="stab-code"><code class="stabilo">var my_things <span class="is-purple">=</span> [2 + 5, 'samurai', true];</code></div>
+        <div class="stab-label"><strong>代入演算子</strong>の <code>=</code> をタイプしました。</div>
+        <div class="stab-code"><code class="stabilo">var my_things <span class="is-purple">=</span> [2 + 5, 'サムライ', true];</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed the <strong>array</strong></div>
-        <div class="stab-code"><code class="stabilo">var my_things = <span class="is-black">[</span><span class="is-red">2</span><span class="is-purple"> + </span><span class="is-red">5</span><span class="is-black">, </span><span class="is-green">'samurai'</span><span class="is-black">, </span><span class="is-purple">true</span><span class="is-black">]</span>;</code></div>
+        <div class="stab-label"><strong>配列</strong>をタイプしました。</div>
+        <div class="stab-code"><code class="stabilo">var my_things = <span class="is-black">[</span><span class="is-red">2</span><span class="is-purple"> + </span><span class="is-red">5</span><span class="is-black">, </span><span class="is-green">'サムライ'</span><span class="is-black">, </span><span class="is-purple">true</span><span class="is-black">]</span>;</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed a <strong>semicolon</strong> to end the statement</div>
-        <div class="stab-code"><code class="stabilo">var my_things = [2 + 5, 'samurai', true]<span class="is-black">;</span></code></div>
+        <div class="stab-label">文の最後に<strong>セミコロン</strong>をタイプしました。</div>
+        <div class="stab-code"><code class="stabilo">var my_things = [2 + 5, 'サムライ', true]<span class="is-black">;</span></code></div>
       </div>
     </div>
 
     <p>
-      This means that <code>my_things</code> is equal to <code>[2 + 5, 'samurai', true]</code>.
+      これは、<code>my_things</code> と <code>[2 + 5, 'サムライ', true]</code> が等価な事を表します。
     </p>
-
     <p>
-      We can now reinstate the <code>alert</code> function:
+      さあ、<code>alert</code> 関数を復活させる時です。
     </p>
-
     <p>
-      Since we now have <em>two statements</em>, we need to separate them with a <strong>semicolon</strong> <code>;</code> in order to know where one ends and the next one begins.
+      いまここには<em>二つの文</em>があるので、どこで一つ目の文が終わって二つ目の文が始まるのかを示すために、それらを<strong>セミコロン</strong> <code>;</code> で分割する必要があります。
     </p>
 
     {% capture snippet %}{% include snippets/snippet_array_alert.md %}{% endcapture %}
@@ -558,36 +591,19 @@ layout: default
 <!-- 19 -->
 <div id="step19" class="step">
   <div class="content">
-    {% include partials/gj.html title="Wonderful!" %}
+    {% include partials/gj.html title="素晴らしい！" %}
 
     <p>
-      By storing our array into a variable, we managed to make our code more <strong>readable</strong>.
+      配列を変数に格納する事によって、コードをより<strong>読みやすく</strong>する事が出来ました。
     </p>
-
-    <div class="message is-info">
-      <div class="message-body">
-        <p>
-          If you look at other recent tutorials on the Web, you'll see variables defined using the keywords <code>const</code> and <code>let</code>. While they are extremely useful, they're hard for me to explain if you're not familiar with the basics of JavaScript.
-        </p>
-        <p>
-          So that's why I decided to use the keyword <code>var</code> here since it's easier to use and understand when learning JavaScript.
-        </p>
-        <p>
-          If what I just said didn't make sense, don't worry about it and keep on reading :-)
-        </p>
-      </div>
-    </div>
-
     <p>
-      Although this <code>my_things</code> variable contains a list of several things, we might want to deal with only a <strong>single</strong> item of the list.
+      この変数は複数の要素を持ったリストを表していますが、リストの中の<strong>一つだけ</strong>の値を扱いたい事もあるでしょう。
     </p>
-
     <p>
-      To access a <em>specific item</em> of an array, you first need to know its <strong>index</strong> (or position) within the array. You then need to wrap this index into <strong>square brackets</strong>.
+      配列の中の<em>特定の要素</em>にアクセスするためには、まずその配列の中の<strong>インデックス</strong> (あるいは位置) を知らなければなりません。そして、そのインデックスを<strong>角括弧</strong>で囲う必要があります。
     </p>
-
     <p>
-      Can you guess which item is gonna be displayed?
+      どの要素が表示されるか予想出来ますか？
     </p>
 
     {% capture snippet %}{% include snippets/snippet_array_index.md %}{% endcapture %}
@@ -598,37 +614,37 @@ layout: default
 <!-- 20 -->
 <div id="step20" class="step">
   <div class="content">
-    {% include partials/gj.html title="You guessed it!" %}
+    {% include partials/gj.html title="当たってました？" %}
 
     <p>
-      It's the <strong>second item</strong> that showed up! In programming, indexes start at zero <code>0</code>.
+      <strong>二番目の要素</strong>が表示されましたね！プログラミングでは、インデックスは <code>0</code> から始まるのです。
     </p>
 
     <div class="stabs is-vertical">
       <div class="stab">
-        <div class="stab-label">you typed the <strong>name</strong> of the array</div>
+        <div class="stab-label">配列の<strong>名前</strong>をタイプしました。</div>
         <div class="stab-code"><code class="stabilo"><span class="is-blue">my_things</span>[1]</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you opened a <strong>square bracket</strong></div>
+        <div class="stab-label"><strong>角括弧</strong>を開きました。</div>
         <div class="stab-code"><code class="stabilo">my_things<span class="is-black">[</span>1]</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed the <strong>index</strong> of the item you wanted to access</div>
+        <div class="stab-label">アクセスしたい要素の<strong>インデックス</strong>をタイプしました。</div>
         <div class="stab-code"><code class="stabilo">my_things[<span class="is-red">1</span>]</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you <strong>closed</strong> the square bracket</div>
+        <div class="stab-label">角括弧を<strong>閉じました</strong>。</div>
         <div class="stab-code"><code class="stabilo">my_things[1<span class="is-black">]</span></code></div>
       </div>
     </div>
 
     <p>
-      It turns out that variables are <strong>objects</strong> too! Which means that variables also have <strong>properties</strong> and <strong>methods</strong>.
+      配列も実は<strong>オブジェクト</strong>です！という事はつまり、配列もまた<strong>プロパティ</strong>と<strong>メソッド</strong>を持つという事です。<small>(訳注：原文は 「variables (＝変数) もオブジェクト」と書かれていますが、配列の誤記で間違いないと思うので訂正しています。)</small>
     </p>
 
     <p>
-      For example, <code>my_things</code> has a property called <code>length</code>:
+      例えは、<code>my_things</code> は <code>length</code> というプロパティを持っています。<small>(訳注：length は長さという意味です。)</small>
     </p>
 
     {% capture snippet %}{% include snippets/snippet_array_length.md %}{% endcapture %}
@@ -639,14 +655,14 @@ layout: default
 <!-- 21 -->
 <div id="step21" class="step">
   <div class="content">
-    {% include partials/gj.html title="That's right!" %}
+    {% include partials/gj.html title="その通り！" %}
 
     <p>
-      The array has <strong>3</strong> items. You'll see that if you add or remove items in <code>my_things</code>, this <code>length</code> value will change accordingly.
+      この配列は <strong>3</strong> つの要素を持っています。もし <code>my_things</code> に要素を追加したり削除したりしたら、この <code>length</code> の値は適切に変化します。
     </p>
 
     <p>
-      While readability and properties are useful, the main point of a variable is that it's <strong>editable</strong>: you can change the value afterwards!
+      変数に名前があって読みやすい事やプロパティが持てる事は便利ですが、変数の最も重要なポイントはそれが<strong>編集可能</strong>な事です。変数の値は後から変更する事が出来ます！
     </p>
 
     {% capture snippet %}{% include snippets/snippet_array_edit.md %}{% endcapture %}
@@ -657,22 +673,22 @@ layout: default
 <!-- 22 -->
 <div id="step22" class="step">
   <div class="content">
-    {% include partials/gj.html title="Yep!" %}
+    {% include partials/gj.html title="やった！" %}
 
     <p>
-      Two alert boxes have been displayed, but with different values! That's because between the first call and the second one, the value of <code>my_things</code> has been <strong>updated</strong>: a fourth item, the string <code>'LOVE'</code>, was added.
+      二つのアラートボックスが表示されましたが、違う値でしたね！なぜなら最初の呼び出しと二回目の呼び出しの間に、<code>my_things</code> が<strong>更新</strong>されたからです。4 つめの要素、文字列の <code>'LOVE'</code> が追加されました。
     </p>
 
     <p>
-      Note that the second time we're assigning a value to <code>my_things</code>, we're <strong>not</strong> using the <code>var</code> keyword: it's because we're editing the <code>my_things</code> variable defined two lines above.
+      二回目に <code>my_things</code> に値を割り当てた時に、キーワード <code>var</code> を<strong>使わなかった</strong>事に留意して下さい。これは、2 行前に定義した変数 <code>my_things</code> を編集していたからです。
     </p>
 
     <p>
-      <strong>You only use the keyword <code>var</code> when you're <em>creating</em> a new variable</strong>, not when you're <em>editing</em> one.
+      <strong>キーワード <code>var</code> は新しい変数を<em>作っている時</em>に使います。</strong><em>編集している時</em>ではありません。
     </p>
 
     <p>
-      Do you remember I told you variables had <strong>methods</strong> too (since they're objects)? Another way to edit an array's value is by using the <code>push()</code> method:
+      配列もオブジェクトの一種なので<strong>メソッド</strong>を持っているという話を覚えていますか？配列を編集するまた別の方法は、<code>push()</code> メソッドを使う事です。
     </p>
 
     {% capture snippet %}{% include snippets/snippet_array_push.md %}{% endcapture %}
@@ -683,14 +699,14 @@ layout: default
 <!-- 23 -->
 <div id="step23" class="step">
   <div class="content">
-    {% include partials/gj.html title="Fantastic!" %}
+    {% include partials/gj.html title="ファンタスティック！" %}
 
     <p>
-      The <code>my_things</code> array ends up with <strong>4</strong> items.
+      配列 <code>my_things</code> は <strong>4</strong> 要素になりました。
     </p>
 
     <p>
-      While the <code>push()</code> method altered the array, others simply <strong>return</strong> a value:
+      <code>push()</code> メソッドが配列を編集する一方、他のものはシンプルに値を<strong>返します</strong>。
     </p>
 
     {% capture snippet %}{% include snippets/snippet_array_includes.md %}{% endcapture %}
@@ -701,18 +717,18 @@ layout: default
 <!-- 24 -->
 <div id="step24" class="step">
   <div class="content">
-    {% include partials/gj.html title="No ninja here!" %}
+    {% include partials/gj.html title="ここにニンジャはいません！" %}
 
     <p>
-      The <code>includes()</code> method checked if the string <code>'ninja'</code> was present in the array. Since it wasn't, the method returned <code>false</code>, a <strong>boolean</strong> value.
+      <code>includes()</code> メソッドは、文字列 <code>'ニンジャ'</code> が配列内に存在するかを確かめていました。そこに存在していなかったのでこのメソッドは、<strong>真偽値</strong>の <code>false</code> を返したのです。
     </p>
 
     <p>
-      As a matter of fact, when dealing with booleans, typing the keywords <code>true</code> or <code>false</code> is quite rare. Usually, booleans exist as a result of a function call (like <code>includes()</code>) or a <strong>comparison</strong>.
+      実際のところ、真偽値を扱う時、キーワードの <code>true</code> や <code>false</code> をタイプする事はあまりありません。たいていの場合真偽値は、<code>includes()</code> のような関数の呼び出しや<strong>比較</strong>の結果として現れます。
     </p>
 
     <p>
-      Here's a "<em>greater than</em>" comparison:
+      これは「<em>〜より大きい</em>」という比較です。
     </p>
 
     {% capture snippet %}{% include snippets/snippet_innerwidth_boolean.md %}{% endcapture %}
@@ -723,37 +739,37 @@ layout: default
 <!-- 25 -->
 <div id="step25" class="step">
   <div class="content">
-    {% include partials/gj.html title="Great again!" %}
+    {% include partials/gj.html title="また素晴らしい！" %}
 
     <p>
-      This means your browser window is <strong id="wider">not</strong> wider than <strong>400 pixels</strong>.
+      これはブラウザウィンドウが <strong>400 ピクセル</strong>より<strong id="wider">広い</strong><strong id="narrower" style="display: none;">広くない</strong>という事です。
     </p>
 
     <div class="stabs">
       <div class="stab">
-        <div class="stab-label">you typed the <strong>first item</strong> to compare, a <strong>number</strong></div>
+        <div class="stab-label">比較するための<strong>数値</strong>である<strong>最初の要素</strong>をタイプしました。</div>
         <div class="stab-code"><code class="stabilo"><span class="is-blue">window<span class="is-black">.</span>innerWidth</span> > 400</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed the "greater than" <strong>operator</strong></div>
+        <div class="stab-label">"より大きい" という<strong>演算子</strong>をタイプしました。</div>
         <div class="stab-code"><code class="stabilo">window.innerWidth <span class="is-purple">></span> 400</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed the <strong>second item</strong>, also a <strong>number</strong></div>
+        <div class="stab-label">同じく<strong>数値</strong>である<strong>二つ目の要素</strong>をタイプしました。</div>
         <div class="stab-code"><code class="stabilo">window.innerWidth > <span class="is-red">400</span></code></div>
       </div>
     </div>
 
     <p>
-      Just like the <code>+</code> and <code>*</code> before, <code>&gt;</code> is a JavaScript <strong>operator</strong>.
+      以前の <code>+</code> や <code>*</code> と同じように、<code>&gt;</code> は JavaScript の<strong>演算子</strong>です。
     </p>
 
     <p>
-      When you make such a comparison with the "<em>greater than</em>" operator <code>&gt;</code>, you obtain a <strong>boolean</strong> value.
+      "<em>より大きい</em>" 演算子 <code>&gt;</code> で比較をすると、<strong>真偽値</strong>の値が結果として得られます。
     </p>
 
     <p>
-      Since the result of a <strong>comparison</strong> only has <strong>2</strong> outcomes (<code>true</code> or <code>false</code>), it's useful in cases where your code has to <a onclick="showStep(26);">make a decision</a>…
+      <strong>比較</strong>の結果は<strong>2 種類</strong> (<code>true</code> か <code>false</code>) に限られるので、これはコードで何か<a onclick="showStep(26);">判断をしなければならない</a>時に便利です。
     </p>
   </div>
 </div>
@@ -761,26 +777,26 @@ layout: default
 <!-- 26 -->
 <div id="step26" class="step">
   <div class="content">
-    <h2>Conditional statements <span class="stamp is-concept">concept</span></h2>
+    <h2>条件文 <span class="stamp is-concept">基本概念</span></h2>
 
     <p>
-      Conditional statements are one of the most important concepts in programming. They allow your code to perform certain commands <em>only if</em> certain conditions are met. These conditions can for example be based on:
+      条件文はプログラミングにおける最も重要な概念の一つです。これにより<em>特定の条件に合致</em>した時だけ処理を実行する事が出来ます。条件文は例えば次のようなものに基づきます。
     </p>
 
     <ul>
       <li>
-        a user's input (is the password entered correct?)
+        ユーザからの入力 (入力されたパスワードは正しいか？)
       </li>
       <li>
-        the current state (is it day or night?)
+        現在の状態 (昼か夜か？)
       </li>
       <li>
-        the value of a certain element (is this person older than 18?)
+        ある要素の値 (この人は 18 歳より老けている？)
       </li>
     </ul>
 
     <p>
-      For now, let's trigger an alert box only if you happen to be on my domain!
+      とりあえず、あなたが js-in-14-mins.otchy.net ドメイン上でこれを見ているかどうかで、アラートボックスを表示してみましょう。
     </p>
 
     {% capture snippet %}{% include snippets/snippet_if.md %}{% endcapture %}
@@ -788,7 +804,7 @@ layout: default
 
     <div class="message is-info">
       <div class="message-body">
-        <p>If you want to <strong>type</strong> this code instead of simply copy-pasting it, press <kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">Enter</kbd> to add line breaks in the console!</p>
+        <p>もし、シンプルにコピーアンドペーストするのでは無く、実際にこのコードを<strong>タイプ</strong>したい場合は、<kbd class="key">Shift</kbd><kbd class="plus">+</kbd><kbd class="key">Enter</kbd> を入力する事で、コンソール上で改行する事が出来ます！</p>
       </div>
     </div>
   </div>
@@ -797,64 +813,64 @@ layout: default
 <!-- 27 -->
 <div id="step27" class="step">
   <div class="content">
-    {% include partials/gj.html title="Equal indeed!" %}
+    {% include partials/gj.html title="確かに等しい！" %}
 
     <p>
-      We're doing another comparison here, but with the "<em>equal to</em>" operator <code>==</code> instead.
+      ここでは代わりに "<em>等しい</em>" という演算子 <code>==</code>を使ったまた別の比較をしています。
     </p>
 
     <div class="stabs is-vertical">
       <div class="stab">
-        <div class="stab-label">you typed the <strong>keyword</strong> <code>if</code></div>
+        <div class="stab-label"><strong>キーワード</strong>の <code>if</code> をタイプしました。</div>
         <div class="stab-code"><code class="stabilo"><span class="is-purple">if</span> (window.location.hostname == 'jgthms.com') {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you opened a <strong>parenthesis</strong></div>
+        <div class="stab-label"><strong>丸括弧</strong>を開きました。</div>
         <div class="stab-code"><code class="stabilo">if <span class="is-black">(</span>window.location.hostname == 'jgthms.com') {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed a <strong>comparison</strong></div>
+        <div class="stab-label"><strong>比較する内容</strong>をタイプしました。</div>
         <div class="stab-code"><code class="stabilo">if (<span class="is-blue">window</span><span class="is-black">.</span><span class="is-blue">location</span><span class="is-black">.</span><span class="is-blue">hostname</span><span class="is-purple"> == </span><span class="is-green">'jgthms.com'</span>) {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you <strong>closed</strong> the parenthesis</div>
+        <div class="stab-label">丸括弧を<strong>閉じました</strong>。</div>
         <div class="stab-code"><code class="stabilo">if (window.location.hostname == 'jgthms.com'<span class="is-black">)</span> {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you opened a <strong>curly bracket</strong></div>
+        <div class="stab-label"><strong>波括弧</strong>を開きました。</div>
         <div class="stab-code"><code class="stabilo">if (window.location.hostname == 'jgthms.com') <span class="is-black">{</span></code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you entered a <strong>block of code</strong> that's only executed if the previous condition is <strong>true</strong></div>
-        <div class="stab-code"><code class="stabilo"><span class="is-blue">&nbsp;&nbsp;alert</span><span class="is-black">(</span><span class="is-green">'Welcome on my domain! 🤗'</span><span class="is-black">)</span></code></div>
+        <div class="stab-label">直前の条件が <strong>true</strong> の時だけ実行される<strong>コードブロック</strong>に入りました。</div>
+        <div class="stab-code"><code class="stabilo"><span class="is-blue">&nbsp;&nbsp;alert</span><span class="is-black">(</span><span class="is-green">'私のドメインにようこそ！🤗'</span><span class="is-black">)</span></code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you <strong>closed</strong> the curly bracket</div>
+        <div class="stab-label">波括弧を<strong>閉じました</strong>。</div>
         <div class="stab-code"><code class="stabilo"><span class="is-black">}</span></code></div>
       </div>
     </div>
 
     <p>
-      Since the alert box <em>did</em> appear, it means that the <strong>hostname</strong> is indeed <em>equal to</em> <code>'jgthms.com'</code>!
+      アラートボックスが<em>ちゃんと表示された</em>という事は、<strong>hostname</strong> が実際に <code>'js-in-14-mins.otchy.net'</code> と<em>等しい</em>という事です！
     </p>
 
     <p>
-      We've handled the case when the comparison returns <code>true</code>.
+      ここでは比較の結果が <code>true</code> になるケースを扱いました。
     </p>
 
     <p>
-      To handle the <strong>opposite case</strong>, when the hostname isn't <code>'jgthms.com'</code>, we can use the "<em>not equal to</em>" <strong>operator</strong> <code>!=</code>:
+      <strong>反対のケース</strong>、hostname が <code>'js-in-14-mins.otchy.net'</code>では無い時、を扱うためには、"<em>等しくない</em>" という<strong>演算子</strong> <code>!=</code> を使います。
     </p>
 
     {% capture snippet %}{% include snippets/snippet_if_not.md %}{% endcapture %}
     {% include partials/snippet.html contents=snippet skipRun=true %}
 
     <p>
-      If you try out this snippet, you'll see that it doesn't trigger anything! (Unless this tutorial has been copied to another domain 😆).
+      このスニペットを試してみると、一切何も起きない事が分かると思います (このチュートリアルが他のドメインにコピーされていない限り😆)。
     </p>
 
     <p>
-      What if we wanted to handle both cases <strong>simultaneously</strong>? We could write two <code>if</code> statements in a row. But since one statement is the <em>exact opposite</em> of the other, we can <strong>combine</strong> them with a <code>else</code> statment:
+      両方のケースを<strong>同時に</strong>扱いたい時はどうしたらいいのでしょう？二つの <code>if</code> 文を並べて書く事は出来ます。しかし、一つの条件がもう一方の<em>真逆</em>だった場合、それらを <code>else</code> 文で<strong>組み合わせる</strong>事が出来ます。
     </p>
 
     {% capture snippet %}{% include snippets/snippet_if_else.md %}{% endcapture %}
@@ -865,21 +881,21 @@ layout: default
 <!-- 28 -->
 <div id="step28" class="step">
   <div class="content">
-    {% include partials/gj.html title="Still equal!" %}
+    {% include partials/gj.html title="まだ等しい！" %}
 
-    <p>With this conditional setup, we can be sure that:</p>
+    <p>この条件の設定で、次のことが確認出来ます。</p>
 
     <ul>
-      <li><strong>only one</strong> of the two alerts will be triggered, but never both</li>
-      <li>at least one of the two alerts <em>will</em> be triggered, because we're covering <strong>all</strong> cases</li>
+      <li>二つのアラートのうち<strong>一つだけ</strong>が表示されますが、両方表示される事はありません。</li>
+      <li><strong>全てのケース</strong>をカバーしているので、二つのうち<em>少なくとも一つ</em>が表されます。</li>
     </ul>
 
     <p>
-      While <code>else</code> is useful for covering all <em>remaining</em> cases, sometimes you want to handle more than two cases.
+      <code>else</code> は全ての<em>残りのケース</em>をカバーするのに便利なので、二つより多くのケースを扱う事も出来ます。
     </p>
 
     <p>
-      By using <code>else if</code> you can add <strong>intermediate</strong> statements and handle multiple cases:
+      <code>else if</code> を使う事で<strong>中間の状態</strong>を追加し、複数のケースを扱えます。
     </p>
 
     {% capture snippet %}{% include snippets/snippet_else_if.md %}{% endcapture %}
@@ -890,18 +906,18 @@ layout: default
 <!-- 29 -->
 <div id="step29" class="step">
   <div class="content">
-    {% include partials/gj.html title="You got it!" %}
+    {% include partials/gj.html title="やったね！" %}
 
     <p>
-      As soon as one comparison returns <code>true</code>, it will be triggered, and all following statements will be ignored. That's why only one alert box showed up!
+      一つの比較が <code>true</code> を返すとすぐに、それが実行されます。そして以降の文は全て無視されます。だからアラートボックスが一つだけ表示されたのです！
     </p>
 
     <p>
-      Conditional statements make use of the <strong>keywords</strong> <code>if</code> and <code>else</code>, followed by a set of <strong>parentheses</strong>.
+      条件文は<strong>キーワード</strong>の <code>if</code> と <code>else</code> を使用し、それに<strong>丸括弧</strong>のセットが続きます。
     </p>
 
     <p>
-      This pattern of keyword/parentheses combination also happens to exist for another <a onclick="showStep(30);">essential programming concept…</a>
+      このキーワードと丸括弧の組合せのパターンは、また別の<a onclick="showStep(30);">本質的なプログラミングの概念</a>でも出てきます。
     </p>
   </div>
 </div>
@@ -909,14 +925,14 @@ layout: default
 <!-- 30 -->
 <div id="step30" class="step">
   <div class="content">
-    <h2>Loops <span class="stamp is-concept">concept</span></h2>
+    <h2>ループ <span class="stamp is-concept">基本概念</span></h2>
 
     <p>
-      When you want to execute a block of code a <em>certain amount</em> of times, you can use a JavaScript <strong>loop</strong>.
+      コードブロックを<em>特定の回数</em>実行したい時には、JavaScript の<strong>ループ</strong>を使う事が出来ます。
     </p>
 
     <p>
-      Can you guess how many alert boxes this snippet will trigger?
+      このスニペットが何回アラートボックスを表示するか予想出来ますか？
     </p>
 
     {% capture snippet %}{% include snippets/snippet_loop.md %}{% endcapture %}
@@ -927,129 +943,129 @@ layout: default
 <!-- 31 -->
 <div id="step31" class="step">
   <div class="content">
-    {% include partials/gj.html title="Three it is!" %}
+    {% include partials/gj.html title="3 回です！" %}
     <p>
-      There were exactly <strong>3</strong> alert boxes! Let's dissect what happened:
+      ちょうど <strong>3</strong> つのアラートボックスが表示されましたね！では、何が起こったのか分析してみましょう。
     </p>
 
     <ul>
       <li>
-        <code>var i = 0</code> is the <strong>initial state</strong><br>
-        Before the loop even starts, the variable <code>i</code> is assigned a value of zero <code>0</code>.
+        <code>var i = 0</code> は<strong>初期状態</strong>です。<br>
+        ループの処理が始まる前に、変数 <code>i</code> に <code>0</code> がセットされます。
       </li>
       <li>
-        <code>i < 3</code> is the <strong>conditional statement</strong><br>
-        On every iteration of the loop, we check this comparison.<br>
-        If it's <code>true</code>, we execute the code in the block.<br>
-        If it's <code>false</code>, we exit the loop.<br>
+        <code>i < 3</code> は<strong>比較条件</strong>です。<br>
+        ループの一回ごとの繰り返しの度に、この条件がチェックされます。<br>
+        もしこれが <code>true</code> なら、コードブロックが実行されます。<br>
+        もしこれが <code>false</code> なら、ループから抜けます。<br>
       </li>
       <li>
-        <code>i++</code> is the <strong>increment expression</strong><br>
-        <em>If</em> the block of code is executed, this expression is executed.<br>
-        In this case, the value of <code>i</code> is incremented by 1.
+        <code>i++</code> は<strong>増分処理</strong>です。<br>
+        <em>もし</em>コードブロックが実行されたなら、この処理も実行されます。<br>
+        このケースの場合、<code>i</code> の値は 1 増えます。
       </li>
     </ul>
 
     <p>
-      Here's how you implemented it:
+      実装した内容は次の通りです。
     </p>
 
     <div class="stabs is-vertical">
       <div class="stab">
-        <div class="stab-label">you typed the <strong>keyword</strong> <code>for</code></div>
+        <div class="stab-label"><strong>キーワード</strong>の <code>for</code> をタイプしました。</div>
         <div class="stab-code"><code class="stabilo"><span class="is-purple">for</span> (var i = 0; i < 3; i++) {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you opened a <strong>parenthesis</strong></div>
+        <div class="stab-label"><strong>丸括弧</strong>を開きました。</div>
         <div class="stab-code"><code class="stabilo">for <span class="is-black">(</span>var i = 0; i < 3; i++) {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you entered the <strong>initial state</strong></div>
+        <div class="stab-label"><strong>初期状態</strong>を入力しました。</div>
         <div class="stab-code"><code class="stabilo">for (<span class="is-purple">var </span><span class="is-blue">i</span><span class="is-purple"> = </span><span class="is-red">0</span>; i < 3; i++) {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed a <strong>semicolon</strong> to separate the expressions</div>
+        <div class="stab-label">各表現を分割するために<strong>セミコロン</strong>をタイプしました。</div>
         <div class="stab-code"><code class="stabilo">for (var i = 0<span class="is-black">;</span> i < 3; i++) {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you entered the <strong>comparison</strong> check</div>
+        <div class="stab-label"><strong>比較条件</strong>を入力しました。</div>
         <div class="stab-code"><code class="stabilo">for (var i = 0; <span class="is-blue">i</span><span class="is-purple"> < </span><span class="is-red">3</span>; i++) {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed a <strong>semicolon</strong> to separate the expressions</div>
+        <div class="stab-label">各表現を分割するために<strong>セミコロン</strong>をタイプしました。</div>
         <div class="stab-code"><code class="stabilo">for (var i = 0; i < 3<span class="is-black">;</span> i++) {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you entered the <strong>increment</strong> expression</div>
+        <div class="stab-label"><strong>増分処理</strong>を入力しました。</div>
         <div class="stab-code"><code class="stabilo">for (var i = 0; i < 3; <span class="is-blue">i</span><span class="is-purple">++</span>) {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you <strong>closed</strong> the parenthesis</div>
+        <div class="stab-label">丸括弧を<strong>閉じました</strong>。</div>
         <div class="stab-code"><code class="stabilo">for (var i = 0; i < 3; i++<span class="is-black">)</span> {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you opened a <strong>curly bracket</strong></div>
+        <div class="stab-label"><strong>波括弧</strong>を開きました。</div>
         <div class="stab-code"><code class="stabilo">for (var i = 0; i < 3; i++) <span class="is-black">{</span></code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you entered a <strong>block of code</strong> that's only executed if the comparison check is <strong>true</strong></div>
+        <div class="stab-label">比較条件が <strong>true</strong> の時だけ実行される<strong>コードブロック</strong>を入力しました。</div>
         <div class="stab-code"><code class="stabilo"><span class="is-blue">&nbsp;&nbsp;alert</span><span class="is-black">(</span><span class="is-blue">i</span><span class="is-black">);</span></code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you <strong>closed</strong> the curly bracket</div>
+        <div class="stab-label">波括弧を<strong>閉じました</strong>。</div>
         <div class="stab-code"><code class="stabilo"><span class="is-black">}</span></code></div>
       </div>
     </div>
 
     <p>
-      Let's analyze each iteration of the loop:
+      ループのそれぞれの繰り返しを分析してみましょう。
     </p>
 
     <div class="table-container">
       <table>
         <thead>
           <tr>
-            <th>Iteration</th>
-            <th>Value of <code>i</code></th>
-            <th>Test</th>
-            <th>Trigger the alert?</th>
+            <th>繰り返し</th>
+            <th><code>i</code> の値</th>
+            <th>判定</th>
+            <th>alert を実行？</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>1st</td>
+            <td>1 回目</td>
             <td>0</td>
             <td><code>0&nbsp;<&nbsp;3</code></td>
-            <td>Yes</td>
+            <td>はい</td>
           </tr>
           <tr>
-            <td>2nd</td>
+            <td>2 回目</td>
             <td>1</td>
             <td><code>1&nbsp;<&nbsp;3</code></td>
-            <td>Yes</td>
+            <td>はい</td>
           </tr>
           <tr>
-            <td>3rd</td>
+            <td>3 回目</td>
             <td>2</td>
             <td><code>2&nbsp;<&nbsp;3</code></td>
-            <td>Yes</td>
+            <td>はい</td>
           </tr>
           <tr>
-            <td>4th</td>
+            <td>4 回目</td>
             <td>3</td>
             <td><code>3&nbsp;<&nbsp;3</code></td>
-            <td><strong>No!</strong></td>
+            <td><strong>いいえ！</strong></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <p>
-      This loop allowed us to <strong>repeat</strong> an action N times. That's what computers are all about!
+      このループで何かを<strong>繰り返して</strong> N 回行う事が出来ます。これこそコンピューターに他なりません！
     </p>
 
     <p>
-      Of all the types of variables we've covered so far, there is one in particular <a onclick="showStep(32);">worth looping through…</a>
+      これまでに学んできた変数の型の中で、とりわけ<a onclick="showStep(32);">繰り返す事に価値がある</a>ものがあります。
     </p>
   </div>
 </div>
@@ -1057,34 +1073,34 @@ layout: default
 <!-- 32 -->
 <div id="step32" class="step">
   <div class="content">
-    <h2>Looping through arrays <span class="stamp is-tool">tool</span></h2>
+    <h2>配列のループ<span class="stamp is-tool">ツール</span></h2>
 
     <p>
-      Arrays are a perfect candidate for loops, because in programming we often want to repeat the <strong>same action</strong> for <em>each</em> item of an array.
+      配列はループに使う完璧な例です。なぜなら、配列の<em>それぞれの</em>要素に対して<strong>同じ処理</strong>を繰り返したい事が良くあるからです。
     </p>
 
     <p>
-      Let's say we wanted to trigger an alert box for <em>each</em> item of an array. While we could write as many <code>alert()</code> statements as there are items in the array (😰), this solution is cumbersome and ineffective! It would be prone to errors, and wouldn't scale at all with bigger arrays.
+      配列の<em>それぞれの</em>要素に対して、アラートボックスを表示したいとしましょう。配列の要素の数だけ <code>alert()</code> を書く事は出来ますが (😰)、この方法は面倒だし効率的ではありません！これだと間違いを起こしやすいですし、大きな配列に広げるのは大変です。
     </p>
 
     <p>
-      Since programming languages are here to help us simplify our work, let's figure out a better way. We already know a few things:
+      プログラミング言語は私たちの仕事を楽にするためにあるのですから、もっと良い方法で解決しましょう。すでにいくつかの事を知っていますね。
     </p>
 
     <ul>
       <li>
-        We know how to get an array's <strong>length</strong>
+        配列の<strong>長さ</strong>を知る方法
       </li>
       <li>
-        We know how to access an array's item by using the <strong>index</strong>
+        <strong>インデックス</strong>を使って配列の要素にアクセスする方法
       </li>
       <li>
-        We have access to the variable <code>i</code>, which conveniently increments 1 by 1
+        都合良く 1 ずつ増えていく変数 <code>i</code> にアクセスする方法
       </li>
     </ul>
 
     <p>
-      By combining these informations, we can devise the following snippet:
+      これらの情報を組み合わせる事で、下記のようなスニペットを考え出す事が出来ます。
     </p>
 
     {% capture snippet %}{% include snippets/snippet_loop_array.md %}{% endcapture %}
@@ -1095,18 +1111,18 @@ layout: default
 <!-- 33 -->
 <div id="step33" class="step">
   <div class="content">
-    {% include partials/gj.html title="In a row!" %}
+    {% include partials/gj.html title="続けざまに！" %}
 
     <p>
-      One by one, the items of the array were displayed in their own alert box.
+      ひとつひとつの配列の要素がそれぞれのアラートボックスの中に表示されました。
     </p>
 
     <p>
-      While using a loop simplifies the process of going through each item of an array, we still had to create a <code>for</code> block <strong>manually</strong> and create a new variable <code>i</code> whose only purpose was to increment after each loop.
+      ループで配列のそれぞれの要素を繰り返している間、まだ <code>for</code> ブロックを<strong>手動で</strong>作らないといけないですし、ループの繰り返しの度にただ数値が増えるだけの新たな変数 <code>i</code> も作らないといけません。
     </p>
 
     <p>
-      I know what you're thinking. "<em><a onclick="showStep(34);">There must be a better way</a>!</em>"
+      何を考えているか分かりますよ。"<em><a onclick="showStep(34);">より良い方法が必ずある</a>はずだ！</em>"
     </p>
   </div>
 </div>
@@ -1114,10 +1130,10 @@ layout: default
 <!-- 34 -->
 <div id="step34" class="step">
   <div class="content">
-    <h2>forEach loop <span class="stamp is-tool">tool</span></h2>
+    <h2>forEach ループ <span class="stamp is-tool">ツール</span></h2>
 
     <p>
-      Arrays actually have a <strong>method</strong> called <code>forEach()</code>, which allows to perform a task <em>for each</em> item in the array:
+      配列は <code>forEach()</code> と呼ばれる<strong>メソッド</strong>をもっています。これで配列の<em>それぞれの</em> <small>(訳注：それぞれの＝"for each")</small> 要素に処理を行う事が出来ます。
     </p>
 
     {% capture snippet %}{% include snippets/snippet_loop_foreach.md %}{% endcapture %}
@@ -1128,53 +1144,53 @@ layout: default
 <!-- 35 -->
 <div id="step35" class="step">
   <div class="content">
-    {% include partials/gj.html title="Better!" %}
+    {% include partials/gj.html title="良くなった！" %}
 
     <p>
-      Note a few improvements:
+      いくつかの改善点
     </p>
 
     <ul>
       <li>
-        There is no <code>i</code> variable involved
+        変数 <code>i</code> が含まれません。
       </li>
       <li>
-        We don't need to access the array's <code>length</code>
+        配列の <code>length</code> にアクセスする必要がありません。
       </li>
       <li>
-        We don't need to use the <strong>index</strong> with <code>my_thing[i]</code> to access the item
+        要素にアクセスするために、<code>my_thing[i]</code> の形で<strong>インデックス</strong>を使う必要がありません。
       </li>
     </ul>
 
     <p>
-      Remember the syntax of the <code>alert()</code> function? It was <code>alert(argument)</code>.
+      <code>alert()</code> 関数の文法は覚えていますか？ <code>alert(parameter)</code> という形でした。
     </p>
 
     <p>
-      If you look carefully, you can see that <code>forEach()</code> has the exact same syntax! It's <code>forEach(argument)</code> but where the argument happens to be a <strong>function</strong> that spans 3 lines.
+      注意深く見ると、<code>forEach()</code> も全く同じ文法である事が分かります！これは <code>forEach(parameter)</code> という形で、ただ引数が 3 行を占める<strong>関数</strong>となっています。
     </p>
 
     <p>
-      So far, we've used a few functions and methods:
+      今のところ、いくつかの関数あるいはメソッドを使いました。
     </p>
 
     <ul>
       <li>
-        the <code>alert()</code> function (or window method)
+        <code>alert()</code> 関数 (あるいは window のメソッド)
       </li>
       <li>
-        the <code>push()</code> array method
+        配列の <code>push()</code> メソッド
       </li>
       <li>
-        the <code>includes()</code> array method
+        配列の <code>includes()</code> メソッド
       </li>
       <li>
-        the <code>forEach()</code> array method
+        配列の <code>forEach()</code> メソッド
       </li>
     </ul>
 
     <p>
-      We know how to <strong>call</strong> a function, but how do you actually <a onclick="showStep(36);">create one</a>?
+      どうやって関数を<strong>呼び出すか</strong>は分かりましたが、ではどうやって実際にそれを<a onclick="showStep(36);">作るのでしょうか？</a>
     </p>
   </div>
 </div>
@@ -1182,22 +1198,22 @@ layout: default
 <!-- 36 -->
 <div id="step36" class="step">
   <div class="content">
-    <h2>Creating a custom function <span class="stamp is-info">info</span></h2>
+    <h2>カスタム関数を作る <span class="stamp is-info">情報</span></h2>
 
     <p>
-      The power of programming languages is the ability to create your <strong>own functions</strong>, that fit <em>your</em> needs.
+      プログラミング言語の力は<em>あなたの</em>目的に沿った<strong>あなた自身の関数</strong>を作る能力にあります。
     </p>
 
     <p>
-      Remember the keyword/parentheses combination that we used for <code>if/else</code> and <code>for</code>? Well, guess what: it's <em>almost</em> the same pattern here!
+      <code>if/else</code> と <code>for</code> のために使った、キーワードと丸括弧の組合せを覚えていますか？さあ、当ててみて。<em>ほとんど</em>同じパターンです！
     </p>
 
     <p>
-      I'm saying "almost" because the only difference is that a function needs a <strong>name</strong>!
+      「ほとんど」同じといったのは、関数には<strong>名前</strong>が必要という唯一の違いがあるからです。
     </p>
 
     <p>
-      Let's <strong>create</strong> a function called <code>greet()</code>, with <strong>1</strong> parameter called <code>name</code>, and then immediately <strong>call</strong> it:
+      <code>name</code> という名前の<strong>一つ</strong>のパラメータを持つ、<code>greet()</code> という関数を<strong>作って</strong>みましょう。そしてすぐにそれを<strong>呼び出し</strong>ます。
     </p>
 
     {% capture snippet %}{% include snippets/snippet_greet.md %}{% endcapture %}
@@ -1208,122 +1224,103 @@ layout: default
 <!-- 37 -->
 <div id="step37" class="step">
   <div class="content">
-    {% include partials/gj.html title="Greetings!" %}
+    {% include partials/gj.html title="ご挨拶！" %}
 
     <p>
-      You've created your first function! It's a simple one but it can teach you a lot.
+      初めての関数を作りました！これは単純なものですが、多くの事を学べます。
     </p>
 
     <p>
-      Note a few things:
+      いくつかのポイント。
     </p>
 
     <ul>
       <li>
-        the <strong>name</strong> of the function is <code>greet</code>
+        関数の<strong>名前</strong>は <code>greet</code> <small>(訳注：「挨拶する」という意味の動詞)</small>です。
       </li>
       <li>
-        the <strong>parameter</strong> is called <code>name</code>: it's like a variable, since it acts as a container for a value
+        <code>name</code> という名前の<strong>パラメータ</strong>：これは値の保存先として振る舞うので、変数と似ています。
       </li>
       <li>
-        we're creating a <strong>variable</strong> called <code>message</code> (a string) whose value is <code>'Hey there ' + name</code>
+        <code>'やあ、' + name</code> という値から、<code>message</code> という名前の<strong>変数</strong> (文字列) を作ります。
       </li>
       <li>
-        what this <strong>plus</strong> sign <code>+</code> does is <strong>concatenate</strong> (or combine) the two strings to make a single longer one
+        この<strong>加算</strong>記号 <code>+</code> は、二つの文字列を<strong>連結</strong>して、一つの長い文字列にします。
       </li>
       <li>
-        we're <strong>calling</strong> the <code>alert()</code> function, and use the <code>message</code> variable as parameter
+        パラメータとして <code>message</code> という変数を使い、<code>alert()</code> 関数を呼び出します。
       </li>
       <li>
-        after having created the function, we're calling it with the argument <code>'Alex'</code>
+        関数を作った後、<code>'アレックス'</code>というパラメータでそれを呼び出します。
       </li>
     </ul>
 
-    <div class="message is-warning">
-      <div class="message-body">
-        <p>
-          You might wonder why we're calling <code>name</code> a <strong>parameter</strong> when so far we've called <strong>argument</strong> the things we pass to a function. Well there's a difference!
-        </p>
-        <ul>
-          <li>
-            When you <strong>define</strong> a function with <code>function greet(name)</code>, <code>name</code> is here a <strong>parameter</strong>: it's like a <em>variable</em> in your function's definition.
-          </li>
-          <li>
-            When you <strong>call</strong> a function with <code>greet('Alex')</code>, <code>'Alex'</code> is here an <strong>argument</strong>: it's the <em>data</em> you pass to the function when calling it.
-          </li>
-        </ul>
-        <p>
-          So whether you define a function or call it, you describe what's in the parenthesis as either parameters or arguments.
-        </p>
-      </div>
-    </div>
-
     <p>
-      If we break it down step by step:
+      これをステップごとに分解すると…
     </p>
 
     <div class="stabs is-vertical">
       <div class="stab">
-        <div class="stab-label">you typed the <strong>keyword</strong> <code>function</code></div>
+        <div class="stab-label"><code>function</code> という<strong>予約語</strong>をタイプしました。</div>
         <div class="stab-code"><code class="stabilo"><span class="is-purple">function</span> greet(name) {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you typed the <strong>name</strong> of the function</div>
+        <div class="stab-label">関数の<strong>名前</strong>をタイプしました。</div>
         <div class="stab-code"><code class="stabilo">function <span class="is-blue">greet</span>(name) {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you opened a <strong>parenthesis</strong></div>
+        <div class="stab-label"><strong>丸括弧</strong>を開きました。</div>
         <div class="stab-code"><code class="stabilo">function greet<span class="is-black">(</span>name) {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you created a <strong>parameter</strong> called <code>name</code></div>
+        <div class="stab-label"><code>name</code>という名前の<strong>パラメータ</strong>を作りました。</div>
         <div class="stab-code"><code class="stabilo">function greet(<span class="is-blue">name</span>) {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you <strong>closed</strong> the parenthesis</div>
+        <div class="stab-label">丸括弧を<strong>閉じました</strong>。</div>
         <div class="stab-code"><code class="stabilo">function greet(name<span class="is-black">)</span> {</code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you opened a <strong>curly bracket</strong></div>
+        <div class="stab-label"><strong>波括弧</strong>を開きました。</div>
         <div class="stab-code"><code class="stabilo">function greet(name) <span class="is-black">{</span></code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you entered a <strong>block of code</strong> that's only executed whenever the function is <strong>called</strong></div>
+        <div class="stab-label">この関数が<strong>呼ばれた</strong>時だけ実行される<strong>コードブロック</strong>を入力しました。</div>
         <div class="stab-code"><code class="stabilo">&nbsp;&nbsp;<span class="is-purple">var</span><span class="is-blue"> message </span><span class="is-purple">= </span><span class="is-green">'Hey there '</span><span class="is-purple"> +</span><span class="is-blue"> name</span><span class="is-black">;</span></code><br><code class="stabilo">&nbsp;&nbsp;<span class="is-blue">alert</span><span class="is-black">(</span><span class="is-blue">message</span><span class="is-black">);</span></code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you <strong>closed</strong> the curly bracket</div>
+        <div class="stab-label">波括弧を<strong>閉じました</strong>。</div>
         <div class="stab-code"><code class="stabilo"><span class="is-black">}</span></code></div>
       </div>
       <div class="stab">
-        <div class="stab-label">you <strong>called</strong> the function with a string as argument</div>
+        <div class="stab-label">文字列のパラメータと共に、関数を<strong>呼び出しました</strong>。</div>
         <div class="stab-code"><code class="stabilo"><span class="is-blue">greet</span><span class="is-black">(</span><span class="is-green">'Alex'</span><span class="is-black">)</span><span class="is-black">;</span></code></div>
       </div>
     </div>
 
     <p>
-      Unless we call the <code>greet()</code> function at the end, nothing happens! That's because the <code>alert()</code> call is <em>inside</em> the scope of <code>greet()</code> so it's not triggered unless the parent function <code>greet()</code> itself is called!
+      最後に <code>greet()</code> 関数を呼び出さない限り、何も起きません！なぜなら <code>alert()</code> の呼び出しは <code>greet()</code> の<em>中に</em>あって、親の関数に当たる <code>greet()</code> が呼び出されない限りは実行されないからです！
     </p>
 
     <p>
-      Basically, by <strong>creating</strong> <code>greet()</code>, you're only telling the browser: "<em>Hey! I've created this new function. So if at some point I call it, please execute whatever is inside!</em>".
+      基本的に <code>greet()</code> を<strong>作る</strong>事でブラウザに、「<em>やあ！この新しい関数を作ったよ。だからもしいつかこれを呼び出したら、何であれ中にある事を実行してくれよな！</em>」とだけ伝えている事になります。
     </p>
 
     <p>
-      That's why, when you <strong>call</strong> <code>greet()</code> at the end, the browser executes its content, which happens to be calling <code>alert()</code>.
+      それが、<code>greet()</code> を最後に<strong>呼び出した</strong>時に、ブラウザがその内容 ─ <code>alert()</code> を呼び出す事 ─ を実行した理由です。
     </p>
 
     <p>
-      It's important to understand that functions are a <strong>2-step</strong> process: creating it first, calling it afterwards.
+      関数は <strong>2 ステップ</strong>のプロセスからなる事を理解することが大事です。まず作成して、後で呼び出す。
     </p>
 
     <p>
-      As a matter of fact, the <code>alert()</code> function we've used all along was already created beforehand. It just exists somewhere inside your browser.
+      実際の所、ずっと使っている <code>alert()</code> 関数は、あらかじめ作られている関数なのです。ブラウザ上のどこかにただ存在しています。
     </p>
 
     <p>
-      Anyway, we've already covered <em>a lot</em> in 14 minutes!<br>
-      So, <a onclick="showStep(38);">what's next</a>?
+      ともかく、これまでに<em>たくさんの</em>事を 14 分で学んできました！<small>(訳注：正直なところ、初見で 14 分は無理だと思います。)</small><br>
+      では、<a onclick="showStep(38);">次は何でしょう</a>？
     </p>
   </div>
 </div>
@@ -1331,18 +1328,24 @@ layout: default
 <!-- 38 -->
 <div id="step38" class="step">
   <div class="content">
-    <h2>Next steps <span class="stamp is-victory">victory!</span></h2>
+    <h2>次のステップ <span class="stamp is-victory">やり切った！</span></h2>
 
-    <h3>Learn JavaScript</h3>
+    <h3>JavaScript を学ぶ</h3>
 
     <p>
-      We've barely covered the basics here. But don't worry! There are <em>tons</em> of resources available online!
+      ここまでで、かろうじて基礎を終えたところです。でも心配しないで！ネット上には<em>大量の</em>教材があります！
     </p>
 
     <p>
-      Here are a few <strong>free</strong> resources I'd recommend:
+      以下は私がお勧めするいくつかの<strong>無料の</strong>教材です。
     </p>
 
+    <div class="content translator-notes">
+      訳注：以下で紹介されている教材は当然ながら全て英語です。日本語での無料の教材も増えてきていますが、私としては特定のお勧めはありません。<br>
+      ただ一点、もし今後も続けて JavaScript を学ぶのであれば、複数の違うサイトや教材で紹介されている情報を適当に混ぜて使う事は避けて欲しいと思います。<br>
+      プログラミングの入門に関して<a href="https://qiita.com/otchy/items/d3eb1546145d1b584b34" target="_blank">私の考えをまとめた記事</a>があるので、もし良ければ参考にして下さい。<br>
+    </div>
+    
     <ul>
       <li>
         <a href="http://eloquentjavascript.net/" rel="nofollow" target="_blank">Eloquent JavaScript</a>
@@ -1362,7 +1365,7 @@ layout: default
     </ul>
 
     <p>
-      If you prefer <strong>video tutorials</strong>, check out these <strong><a href="https://click.linksynergy.com/fs-bin/click?id=76TvM1KGjYg&offerid=358574.81&type=3&subid=0" target="_blank">Udemy courses</a><IMG class="lazyload" border=0 width=1 height=1 data-src="https://ad.linksynergy.com/fs-bin/show?id=76TvM1KGjYg&bids=358574.81&type=3&subid=0" ></strong>:
+      もし<strong>動画の教材</strong>の方がよければ、<strong><a href="https://click.linksynergy.com/fs-bin/click?id=76TvM1KGjYg&offerid=358574.81&type=3&subid=0" target="_blank">Udemy courses</a><IMG class="lazyload" border=0 width=1 height=1 data-src="https://ad.linksynergy.com/fs-bin/show?id=76TvM1KGjYg&bids=358574.81&type=3&subid=0" ></strong> をチェックしてみて下さい。
     </p>
 
     <nav class="shares">
@@ -1377,7 +1380,7 @@ layout: default
           height="21"
         %}
         <br>
-        <em>21.5 hours 📼</em>
+        <em>21.5 時間 📼</em>
         <strong>Modern JavaScript From The Beginning</strong>
       </a>
       <IMG class="lazyload" border=0 width=1 height=1 data-src="https://ad.linksynergy.com/fs-bin/show?id=76TvM1KGjYg&bids=358574.1463348&type=2&subid=0" >
@@ -1393,14 +1396,14 @@ layout: default
           height="21"
         %}
         <br>
-        <em>17.5 hours 📼</em>
+        <em>17.5 時間 📼</em>
         <strong>The Complete JavaScript Course: Build a Real-World Project</strong>
       </a>
       <IMG class="lazyload" border=0 width=1 height=1 data-src="https://ad.linksynergy.com/fs-bin/show?id=76TvM1KGjYg&bids=358574.851712&type=2&subid=0" >
     </nav>
 
     <p>
-      If you're in a rush, try this <strong>shorter</strong> course!
+      もし急いでいるなら、<strong>より短い</strong>コースもあります！
     </p>
 
     <nav class="shares">
@@ -1415,20 +1418,20 @@ layout: default
           height="21"
         %}
         <br>
-        <em>Only 3.5 hours! 📼</em>
+        <em>わずか 3.5 時間！📼</em>
         <strong>Advanced Javascript</strong>
       </a>
       <IMG class="lazyload" border=0 width=1 height=1 data-src="https://ad.linksynergy.com/fs-bin/show?id=76TvM1KGjYg&bids=358574.670034&type=2&subid=0" >
     </nav>
 
-    <h3>Learn HTML and CSS</h3>
+    <h3>HTML と CSS を学ぶ</h3>
 
     <p>
-      JavaScript is only one third of what makes a webpage! You also need to know <strong>HTML</strong> and <strong>CSS</strong>.
+      JavaScript はウェブページを成しているもののうち、三分の一でしかありません！<strong>HTML</strong> と <strong>CSS</strong> の事も知る必要があります。
     </p>
 
     <p>
-      Luckily, I've created <strong>two free references</strong> for you to browse through, so you can learn everything each language has to offer!
+      幸運なことに、あなたのために私が作った<strong>二つの無料の資料</strong>があるので、それら二つの言語が提供している全ての事を学べます！
     </p>
 
     <nav class="shares">
@@ -1468,10 +1471,10 @@ layout: default
       </a>
     </nav>
 
-    <h3>Learn my CSS framework</h3>
+    <h3>私の CSS フレームワークを学ぶ</h3>
 
     <p>
-      I designed this page with <strong>Bulma</strong>, my free open source CSS framework based on Flexbox. <a href="https://bulma.io" target="_blank">Check it out!</a>
+      私はこのページを <strong>Bulma</strong> ─ Flexbox を元にした私のオープンソース CSS フレームワーク ─ でデザインしました。<a href="https://bulma.io" target="_blank">要チェック！</a>
     </p>
 
     {%
@@ -1485,10 +1488,10 @@ layout: default
       height="160"
     %}
 
-    <h3>Read my book</h3>
+    <h3>私の本を読む</h3>
 
     <p>
-      I wrote a <strong>44-page PDF</strong> called "<a href="https://jgthms.com/css-in-44-minutes-ebook" target="_blank">CSS in 44 minutes</a>" which teaches how to build your own personal webpage from scratch with HTML5 and CSS3.
+      私は「<a href="https://jgthms.com/css-in-44-minutes-ebook" target="_blank">CSS in 44 minutes</a>」という、個人のウェブページをまっさらな所から HTML5 と CSS3 で作る方法を <strong>44 ページ</strong> で解説した PDF の本を書きました。
     </p>
 
     {%
@@ -1503,11 +1506,11 @@ layout: default
     %}
 
     <p>
-      As a bonus, the book also includes a small <strong>chapter on JavaScript</strong> in which I talk about functions, conditionals, objects, strings, and even explains how to interact with CSS.
+      おまけにこの本には短めの<strong>JavaScript の章</strong>があり、関数、条件文、オブジェクト、文字列、のみならずどのように CSS と連携させるかについても解説しています。
     </p>
 
     <p>
-      I guess now there's <a onclick="showStep(39);">only one thing left to do</a>…
+      さあ今や、<a onclick="showStep(39);">もう一つしかやる事が残っていません</a>…
     </p>
   </div>
 </div>
@@ -1515,31 +1518,31 @@ layout: default
 <!-- 39 -->
 <div id="step39" class="step">
   <div class="content">
-    <h2>Share and support! 😍</h2>
+    <h2>シェアしてね！😍</h2>
 
     <nav class="shares">
       <a
         class="share is-facebook"
-        href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fjgthms.com%2Fjavascript-in-14-minutes%2F"
+        href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fjs-in-14-mins.otchy.net%2F"
         rel="nofollow"
         target="_blank"
         >
         <span>{% include icons/facebook.html %}</span>
-        <em>Share on</em>
         <strong>Facebook</strong>
+        <em>でシェア</em>
       </a>
       <a
         class="share is-twitter"
         data-social-network="Twitter"
         data-social-action="tweet"
-        data-social-target="https://jgthms.com/javascript-in-14-minutes/"
-        href="https://twitter.com/intent/tweet?text=JavaScript%20in%2014%20minutes&url=https%3A%2F%2Fjgthms.com%2Fjavascript-in-14-minutes%2F&via=jgthms"
+        data-social-target="https://js-in-14-mins.otchy.net/"
+        href="https://twitter.com/intent/tweet?text=JavaScript%20in%2014%20minutes&url=https%3A%2F%2Fjs-in-14-mins.otchy.net%2F&via=otchy"
         rel="nofollow"
         target="_blank"
         >
         <span>{% include icons/twitter.html %}</span>
-        <em>Share on</em>
         <strong>Twitter</strong>
+        <em>でシェア</em>
       </a>
       <a class="share is-paypal" href="https://www.paypal.me/jgthmsuk" target="_blank">
         {%
@@ -1551,18 +1554,18 @@ layout: default
           height="26"
         %}
         <br>
-        <em>Donate on</em>
         <strong>PayPal</strong>
-      </a>
-      <a class="share is-whatsapp" href="whatsapp://send?text=https%3A%2F%2Fjgthms.com%2Fjavascript-in-14-minutes%2F" data-action="share/whatsapp/share">
-        <span>{% include icons/whatsapp.html %}</span>
-        <em>Share via</em>
-        <strong>WhatsApp</strong>
+        <em>で寄付</em>
       </a>
       <a class="share is-github" href="https://github.com/jgthms/javascript-in-14-minutes" target="_blank">
         <span>{% include icons/github.html %}</span>
-        <em>Star on</em>
-        <strong>GitHub</strong>
+        <strong>GitHub (原本)</strong>
+        <em>に星を付ける</em>
+      </a>
+      <a class="share is-github" href="https://github.com/otchy210/javascript-in-14-minutes" target="_blank">
+        <span>{% include icons/github.html %}</span>
+        <strong>GitHub (日本語版)</strong>
+        <em>に星を付ける</em>
       </a>
       <a class="share is-patreon" href="https://www.patreon.com/jgthms" target="_blank">
         {%
@@ -1574,29 +1577,29 @@ layout: default
           height="36"
         %}
         <br>
-        <em>Support me on</em>
         <strong>Patreon</strong>
+        <em>でサポート</em>
       </a>
       <a class="share is-hn" href="https://news.ycombinator.com/item?id=16687634" target="_blank" rel="nofollow">
         <span>{% include icons/hn.html %}</span>
-        <em>Discuss on</em>
         <strong>Hacker News</strong>
+        <em>上で議論</em>
       </a>
       <a class="share is-reddit" href="https://www.reddit.com/r/javascript/comments/87i1m6/javascript_in_14_minutes/" target="_blank" rel="nofollow">
         <span>{% include icons/reddit.html %}</span>
-        <em>Discuss on</em>
         <strong>Reddit</strong>
+        <em>上で議論</em>
       </a>
     </nav>
 
     {% include partials/newsletter.html %}
 
     <p>
-      Thanks for reading!
+      ここまで読んでくれてありがとう！
     </p>
 
     <p class="madeby">
-      Made by <a href="https://jgthms.com/" target="_blank">@jgthms</a>
+      Made by <a href="https://jgthms.com/" target="_blank">@jgthms</a>, translated by <a href="https://twitter.com/otchy" target="_blank">Otchy</a>
     </p>
   </div>
 </div>
@@ -1604,40 +1607,40 @@ layout: default
 <aside id="sides" class="sides">
   <div id="sideConcepts" class="side">
     <div class="side-title">
-      <span class="stamp is-concept">concepts</span>
+      <span class="stamp is-concept">基本概念</span>
     </div>
     <div id="sideFunctions" class="side-item">
-      <span class="side-word is-concept">Functions</span>
+      <span class="side-word is-concept">関数</span>
     </div>
     <div id="sideVariables" class="side-item">
-      <span class="side-word is-concept">Variables</span>
+      <span class="side-word is-concept">変数</span>
     </div>
     <div id="sideConditionals" class="side-item">
-      <span class="side-word is-concept">Conditionals</span>
+      <span class="side-word is-concept">条件文</span>
     </div>
     <div id="sideLoops" class="side-item">
-      <span class="side-word is-concept">Loops</span>
+      <span class="side-word is-concept">ループ</span>
     </div>
   </div>
 
   <div id="sideTypes" class="side">
     <div class="side-title">
-      <span class="stamp is-type">types</span>
+      <span class="stamp is-type">型</span>
     </div>
     <div id="sideStrings" class="side-item">
-      <span class="side-word is-type">Strings</span>
+      <span class="side-word is-type">文字列 (String)</span>
     </div>
     <div id="sideNumbers" class="side-item">
-      <span class="side-word is-type">Numbers</span>
+      <span class="side-word is-type">数値 (Number)</span>
     </div>
     <div id="sideObjects" class="side-item">
-      <span class="side-word is-type">Objects</span>
+      <span class="side-word is-type">オブジェクト (Object)</span>
     </div>
     <div id="sideArrays" class="side-item">
-      <span class="side-word is-type">Arrays</span>
+      <span class="side-word is-type">配列 (Array)</span>
     </div>
     <div id="sideBooleans" class="side-item">
-      <span class="side-word is-type">Booleans</span>
+      <span class="side-word is-type">真偽値 (Boolean)</span>
     </div>
   </div>
 </aside>
