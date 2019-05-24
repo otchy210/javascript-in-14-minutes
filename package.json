@@ -1,7 +1,7 @@
 {
-  "name": "javascript-in-14-minutes",
-  "version": "0.0.1",
-  "description": "JavaScript in 14 minutes",
+  "name": "javascript-in-14-minutes-ja",
+  "version": "1.0.0",
+  "description": "JavaScript in 14 minutes Japanese version",
   "keywords": [
     "sass",
     "bulma",
@@ -9,7 +9,7 @@
     "tutorial",
     "javascript"
   ],
-  "author": "Jeremy Thomas <bbxdesign@gmail.com> (https://jgthms.com)",
+  "author": "Toru Ochiai <id+github@otchy.net> (https://otchy.net)",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^7.1.5",
@@ -32,6 +32,9 @@
     "js-watch": "npm run js-build -- --watch",
     "start": "npm run css-watch | npm run js-watch",
     "serve": "jekyll serve",
-    "build": "jekyll build"
+    "build": "jekyll build",
+    "gcloud-prepare": "rm -rf publish && mkdir -p publish/public && cp -rf _site/* publish/public && mv publish/public/index.html publish/ && cp -rf _gcloud/* publish/ ",
+    "gcloud-serve": "npm run gcloud-prepare && cd publish && node app.js",
+    "publish": "npm run gcloud-prepare && cd publish && gcloud app deploy --project js-in-14-mins-otchy-net"
   }
 }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ site.data.meta.title }} by Jeremy Thomas</title>
-    <link rel="stylesheet" href="{{ site.url }}/css/main.min.css?v={{ site.time | date: "%Y%m%d%H%M" }}">
+    <link rel="stylesheet" href="/css/main.min.css?v={{ site.time | date: "%Y%m%d%H%M" }}">
     {% include partials/share.html %}
     {% include partials/favicons.html %}
     {% include partials/ga.html %}
@@ -14,15 +14,15 @@
     <main class="main">
       {{ content }}
     </main>
-    <script src="{{ site.url }}/vendor/bowser-1.9.3.min.js"></script>
-    <script src="{{ site.url }}/vendor/js.cookie-2.1.4.min.js"></script>
-    <script src="{{ site.url }}/vendor/clipboard-2.0.0.min.js"></script>
-    <script src="{{ site.url }}/vendor/lazyload-2.0.0-beta.2.min.js"></script>
+    <script src="/vendor/bowser-1.9.3.min.js"></script>
+    <script src="/vendor/js.cookie-2.1.4.min.js"></script>
+    <script src="/vendor/clipboard-2.0.0.min.js"></script>
+    <script src="/vendor/lazyload-2.0.0-beta.2.min.js"></script>
     <script type="text/javascript">
       ;(function() {
         lazyload();
       })();
     </script>
-    <script src="{{ site.url }}/lib/main.js?v={{ site.time | date: "%Y%m%d%H%M" }}"></script>
+    <script src="/lib/main.js?v={{ site.time | date: "%Y%m%d%H%M" }}"></script>
   </body>
 </html>
